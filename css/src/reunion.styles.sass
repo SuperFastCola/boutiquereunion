@@ -1,0 +1,681 @@
+// http://meyerweb.com/eric/tools/css/reset/ 
+// v2.0 | 20110126
+// License: none (public domain)
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video 
+	margin: 0
+	padding: 0
+	border: 0
+	font-size: 100%
+	font: inherit
+	vertical-align: baseline
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section 
+	display: block
+
+body 
+	line-height: 1
+
+ol, ul 
+	list-style: none
+
+blockquote, q
+	quotes: none
+
+blockquote:before, blockquote:after,q:before, q:after 
+	content: ''
+	content: none
+
+table 
+	border-collapse: collapse
+	border-spacing: 0
+
+.breaker
+	clear: both
+	float: none
+	line-height: 0px
+	font-size: 0px
+	padding: 0px
+	margin: 0px
+	height: 0px
+	visibility: hidden
+	border: 0px solid red
+
+//////////////////////////////////////////////////////////////////
+//user defined functions
+=backColor($color)
+	background-color: $color
+
+=borderRadius($radius)
+	-webkit-border-radius: $radius
+	-moz-border-radius:    $radius
+	-ms-border-radius:     $radius
+	border-radius:         $radius
+
+=textSizeAttributes()
+	text-size-adjust: none
+	-ms-text-size-adjust: none
+	-webkit-text-size-adjust: none
+	-webkit-font-smoothing: antialiased
+
+=backPos($left: 0px, $top: 0px)
+	background-position: $left $top
+	background-repeat: no-repeat
+
+=transProp($prop:opacity, $time:.25s)
+	-webkit-transition: $prop $time
+	-moz-transition: $prop $time
+	-o-transition: $prop $time
+	transition: $prop $time
+
+=opacity($amt)
+	opacity: $amt
+	-moz-opacity: $amt
+	$msamt: ($amt * 100)
+	filter: "alpha(opacity = #{msamt})"
+
+=back($img, $left: 0px, $top: 0px)
+	background-image: url("../images/#{$img}")
+	background-repeat: no-repeat
+	+backPos($left,$top)
+
+=notSelectable()
+	-webkit-touch-callout: none
+	-webkit-user-select: none
+	-khtml-user-select: none
+	-moz-user-select: none
+	-ms-user-select: none
+	user-select: none
+	-ms-touch-action: none	
+
+=setFont($fontSize: 12px, $color: $main, $family: $fontFamily, $transform: none, $lineHeight: auto, $align: left, $fontWeight: normal, $fontStyle: normal)
+	font-size: $fontSize
+	line-height: $lineHeight
+	font-family: $family
+	font-weight: $fontWeight
+	font-style: $fontStyle
+	text-align: $align
+	text-transform: $transform
+	color: $color
+
+
+=setElement($width: 20px, $height: 20px, $position: relative, $display: block)
+	display: $display
+	position: $position
+	width: $width
+	height: $height
+
+=setPos($left: auto, $top: auto )
+	left: $left
+	top: $top
+
+=bdr($stroke: 1px, $color: red )
+	border: $stroke solid $color
+
+=buttonBehavior($color: #fff)
+	text-decoration: none
+	+opacity(1)
+	+transProp(all,.25s)
+	cursor: pointer
+
+	&:hover
+		+opacity(.7)
+
+=shadow($params: 0px 0px 5px $shadow_color)
+	-moz-box-shadow: $params
+	-webkit-box-shadow: $params
+	box-shadow: $params
+   
+=rotate2D($amount)
+	-webkit-transform: rotate($amount)
+	-moz-transform: rotate($amount)
+	-ms-transform: rotate($amount)
+	-o-transform: rotate($amount)
+	transform: rotate($amount)
+
+=scale($amount, $originX: 0%, $originY: 0%)
+	-webkit-transform: scale($amount)
+	-moz-transform: scale($amount)
+	-ms-transform: scale($amount)
+	-o-transform: scale($amount)
+	transform: scale($amount)
+	-ms-transform-origin: $originX $originY
+	-webkit-transform-origin: $originX $originY
+	transform-origin: $originX $originY
+
+
+=moveBackWithRotation($z:-1px,$r:0deg)
+	-webkit-transform: translateZ($z) rotateX($r)
+	-moz-transform:  translateZ($z) rotateX($r)
+	-ms-transform:  translateZ($z) rotateX($r)
+	-o-transform:  translateZ($z) rotateX($r)
+	transform:  translateZ($z) rotateX($r)
+
+=translateX($x)
+	-webkit-transform: translateX($x)
+	-moz-transform:  translateX($x)
+	-ms-transform:  translateX($x)
+	-o-transform:  translateX($x)
+	transform:  translateX($x)
+
+=translateY($y)
+	-webkit-transform: translateY($y)
+	-moz-transform:  translateY($y)
+	-ms-transform:  translateY($y)
+	-o-transform:  translateY($y)
+	transform:  translateY($y)
+
+
+//////////////////////////////////////////////////////////////////
+//user defined variables
+$baseFontSize: 14px
+$percent_10_black: rgba(0,0,0,.1)
+$percent_20_black: rgba(0,0,0,.2)
+$percent_30_black: rgba(0,0,0,.3)
+$percent_40_black: rgba(0,0,0,.4)
+$percent_50_black: rgba(0,0,0,.5)
+$percent_60_black: rgba(0,0,0,.6)
+$percent_70_black: rgba(0,0,0,.7)
+$percent_80_black: rgba(0,0,0,.8)
+$percent_90_black: rgba(0,0,0,.9)
+$percent_95_black: rgba(0,0,0,.95)
+
+$percent_10_white: rgba(255,255,255,.1)
+$percent_20_white: rgba(255,255,255,.2)
+$percent_30_white: rgba(255,255,255,.3)
+$percent_40_white: rgba(255,255,255,.4)
+$percent_50_white: rgba(255,255,255,.5)
+$percent_60_white: rgba(255,255,255,.6)
+$percent_70_white: rgba(255,255,255,.7)
+$percent_80_white: rgba(255,255,255,.8)
+$percent_90_white: rgba(255,255,255,.9)
+$percent_95_white: rgba(255,255,255,.95)
+
+
+$headerHeight: 163px
+
+$fontFamily: 'Karla', Arial, Helvetica, sans-serif
+$fontFamilyItalic: 'Karla', Arial, Helvetica, sans-serif
+$fontFamilyBold: 'Oswald', Arial, Helvetica, sans-serif
+$fontFamilyBoldItalic: 'Oswald', Arial, Helvetica, sans-serif
+
+$ph: 221px
+$withBorders: $ph + 2px
+ 
+////////////////////////////////////////////////////////////////// 
+//start of main style definitions  
+
+html, body
+	height: 100%
+
+body
+	font-family: $fontFamily
+	font-size: $baseFontSize
+	color: black
+	padding: 0px
+	+textSizeAttributes
+	overflow-x: hidden
+
+	&.clipBody
+		// height: 100%
+		overflow-x: hidden
+
+		#portfolio_area
+			height: 0px
+			overflow: hidden
+
+		@media only screen and (max-width: $withBorders * 2), (min-width: 320px) and (max-width: 480px)
+			-webkit-overflow-scrolling:none
+
+.navigation
+	$width: 250px
+	+setElement(250px, 100%, fixed)
+	+setPos(100%,0px)
+	z-index: 20
+	margin-left: 0px
+	+transProp(all, .25s)
+
+	a
+		+setElement(100%, 30px, relative)
+		+bdr(0px)
+		margin-bottom: 0px
+		border-bottom: 1px solid $percent_10_black
+		padding: 4px 0px 4px 15px
+		+backColor(white)
+		+buttonBehavior
+		+setFont(14px,black,$fontFamily,uppercase,auto,left)
+		overflow: hidden
+		
+		span
+			padding: 8px 0px 0px 0px
+			display: inline-block
+
+			@media only screen and (min-width: 320px) and (max-width: 480px)
+				padding: 10px 0px 0px 0px
+
+		&:hover
+			+backColor($percent_10_black)
+
+		&:first-child
+			margin-top: 14px
+
+		@media only screen and (min-width: 320px) and (max-width: 480px)
+			+setElement(100%, 36px, relative)
+			+setFont(18px,black,$fontFamily,uppercase,auto,left)
+
+	&.showing
+		margin-left: -($width)
+		border-left: 1px solid $percent_10_black
+
+
+#hamburger
+	+setElement(40px,40px,fixed)
+	+setPos(100%,15px)
+	margin-left: -(50px)
+	+borderRadius(22px)
+	+backColor($percent_70_black)
+	+buttonBehavior
+	z-index: 500
+
+	@media only screen and (max-width: $withBorders * 2), (min-width: 320px) and (max-width: 480px)
+		+backColor($percent_70_black)
+		+setElement(50px,50px,fixed)
+		+setPos(100%,15px)
+		margin-left: -(60px)
+		+borderRadius(25px)
+
+		&.hide
+			display: none
+	
+
+	&.showing
+		margin-left: -(310px)
+
+.content_area
+	display: none
+
+	&.showContent
+		display: block
+
+.container
+	+setElement(100%, 100%, absolute)
+	+setPos(0px,0px)
+	z-index: 10
+	margin-left: 0px
+	+transProp(all, .25s)
+
+	&.showing
+		margin-left: -(250px)
+
+.icon_holder
+	+setElement(40px, 40px, absolute)
+	+setPos(100%, 0px)
+	+buttonBehavior
+
+	&.close
+		margin-left: -30px
+		z-index: 201
+
+		@media only screen and (max-width: $withBorders * 2), (min-width: 320px) and (max-width: 480px)
+			margin-left: -50px
+	
+	&.expand
+		+setPos(100%,100%)
+		margin-left: -50px
+		margin-top: -50px
+		z-index: 202
+
+		.icon
+			+scale(.5, 7%, 21%)
+
+	@media only screen and (max-width: $withBorders * 2), (min-width: 320px) and (max-width: 480px)
+		+backColor($percent_70_black)
+		+setPos(100%, 15px)
+		+borderRadius(20px)
+		
+
+	.icon
+		@media only screen and (max-width: $withBorders * 2), (min-width: 320px) and (max-width: 480px)
+			+scale(.5, 6%, 12%)
+			
+		.symbol
+			fill: transparent
+			stroke: black
+			stroke-width: 4
+
+			@media only screen and (max-width: $withBorders * 2), (min-width: 320px) and (max-width: 480px)
+				stroke: white
+
+.project_description
+	.showing
+		.icon_holder.close
+			display: block
+
+		@media only screen and (max-width: $withBorders * 2), (min-width: 320px) and (max-width: 480px)
+			.icon_holder.expand
+				display: block
+
+
+	
+
+
+.project_description
+	+setElement(0%, 0%, absolute)
+	+setPos(100%,$headerHeight)
+	display: block
+	z-index: 30
+	margin-left: 0px
+	+transProp(all, .25s)
+	+backColor(white)
+	background-repeat: no-repeat
+	background-size: auto 100%
+	border-top: 1px solid $percent_10_black
+
+
+	&.showing
+		+setPos(0px,$headerHeight)
+		+setElement(100%, 100%, absolute)
+
+		.description_holder
+			display: block
+
+	@media only screen and (max-width: $withBorders * 2), (min-width: 320px) and (max-width: 480px)
+		+backColor(white)
+
+	.description_holder
+		+setElement(95%, auto, relative)
+		+backColor(white)
+		margin: 20px auto
+		padding: 0px
+		display: none
+
+		@media only screen and (max-width: $withBorders * 2), (min-width: 320px) and (max-width: 480px)
+			+setElement(100%, auto, relative)
+			margin: 0px auto
+			overflow-x: hidden
+
+
+		&.illo
+			+setElement(95%, auto, relative)
+
+			.icon_holder.close
+				display: block
+
+			img.notext
+				width: 60%
+				margin-left: auto
+				margin-right: auto
+
+				@media only screen and (max-width: $withBorders * 2), (min-width: 320px) and (max-width: 480px)
+					width: 100%
+
+
+			@media only screen and (max-width: $withBorders * 2), (min-width: 320px) and (max-width: 480px)
+				+setElement(100%, auto, relative)
+				img
+					width: 100%
+
+
+				.icon_holder.expand
+					display: none
+
+		.info_holder
+			+setElement(35%, auto)
+			display: inline-block
+			vertical-align: top
+			padding: 50px 0px 50px 20px
+			+transProp(all,.5s)
+
+			@media only screen and (max-width: $withBorders * 2), (min-width: 320px) and (max-width: 480px)
+				+setElement(90%, auto, relative)
+				padding: 20px 5% 30px 5%
+				+setPos(0px, 0px)
+
+			h1
+				+setFont(30px,black,$fontFamilyBold,uppercase)
+
+				@media only screen and (max-width: $withBorders * 2), (min-width: 320px) and (max-width: 480px)
+					+setFont(22px,black,$fontFamilyBold,uppercase)
+
+			.info
+				+setFont(18px,black,$fontFamily)
+				margin-top: 10px
+
+				@media only screen and (max-width: $withBorders * 2), (min-width: 320px) and (max-width: 480px)
+					+setFont(16px,black,$fontFamily)
+
+				span
+					+setElement(100%, auto)
+					+setFont(20px,black,$fontFamilyBold,uppercase)
+					line-height: 23px
+					padding: 20px 0px 7px 0px
+
+					@media only screen and (max-width: $withBorders * 2), (min-width: 320px) and (max-width: 480px)
+						+setFont(16px,black,$fontFamilyBold,uppercase)
+						line-height: 18px
+						padding: 10px 0px 5px 0px
+
+				&.description span
+					padding-top: 0px
+
+
+		.imageDisplay
+			+setElement(60%, auto, relative)
+			display: inline-block
+			vertical-align: top
+			+transProp(all,.5s)
+
+			.icon_holder
+				display: none
+
+			@media only screen and (max-width: $withBorders * 2), (min-width: 320px) and (max-width: 480px)
+				+setElement(100%, 150px, relative)
+				overflow: hidden
+				border-bottom: 1px dotted $percent_20_black	
+
+				&.expanded
+					+setElement(100%, 100%, relative)
+
+					.icon_holder.expand
+						+rotate2D(180deg)
+
+				.icon_holder
+					display: block
+					z-index: 300
+
+			&.fullwidth
+				+setElement(100%, auto)
+
+				@media only screen and (max-width: $withBorders * 2), (min-width: 320px) and (max-width: 480px)
+					+setPos(0px,0px)
+					border-top: 0px
+					border-right: 0px
+					margin-top: 0px
+
+
+		img
+			+setElement(100%, 100%)
+			+transProp(opacity,1s)
+			+opacity(0)
+
+			&.loadingDetail
+				+opacity(1)
+
+			@media only screen and (max-width: $withBorders * 2), (min-width: 320px) and (max-width: 480px)
+				+setElement(100%, auto, relative)
+				+setPos(0,0px)
+				border-right: none
+
+	
+
+
+
+#portfolio_header
+	+back("full/cityscape_back.jpg",left,top)
+	+setElement(100%, $headerHeight, relative)
+	background-repeat: repeat-x
+	background-size: auto 88%
+	margin: 0px auto 0px auto
+	overflow: hidden
+	border-bottom: 1px dotted $percent_10_black	
+
+	.dude
+		+setElement(234px, $headerHeight)
+		background-size: auto 100%
+		margin-left: 30px
+		+back("full/dude_back.png",left,20px)
+		z-index: 200
+
+		span
+			$sw: 141px
+			$sh: 94px
+			+setElement($sw,$sh, absolute)
+			+setPos(77%,50%)
+			margin-left: -(58px)
+			margin-top: -(35px)
+			+notSelectable	
+			+setFont(70px,black,$fontFamilyBold,uppercase)
+
+
+.content-holder
+
+
+.project-holder	
+	float: left
+	overflow: hidden
+	min-width: $ph
+	background-size: 100% auto
+	background-position: 0px 0%
+	+transProp(all, 3s)
+	+backColor(white)
+	+bdr(1px, white)
+	+buttonBehavior
+
+	&.loading
+		+bdr(1px, $percent_10_black)
+		background-position: 100px 0%
+
+		@media only screen and (min-width: 320px) and (max-width: 480px)
+			border-right: 0px
+			border-left:  0px
+		
+
+	&.selected
+		width: 100%
+		height: $ph * 2
+		left: 0px
+		position: absolute
+		z-index: 300
+
+	=projectTiles($height: $ph,$divider: 5,$borderColor: null, $borderPercent:0.25% )
+		$width: (100%/$divider) - $borderPercent
+		+setElement($width,$height,relative)
+
+		@if $borderColor != null
+			+bdr(1px,$borderColor)
+		@else
+			+bdr(1px,white)
+	
+	$div: 6
+	@media only screen and (min-width: $withBorders * $div)
+		+projectTiles($ph,$div)		
+
+	$prevDiv: $div	
+	$div: 5
+	@media only screen and (min-width: $withBorders * $div) and (max-width: $withBorders * $prevDiv)
+		+projectTiles($ph,$div)
+
+	$prevDiv: $div
+	$div: 4
+	@media only screen and (min-width: $withBorders * $div) and (max-width: $withBorders * $prevDiv)
+		+projectTiles($ph,$div)
+
+	$prevDiv: $div
+	$div: 3
+	@media only screen and (max-width: $withBorders * $prevDiv)
+		+projectTiles($ph,$div,white,.35%)
+
+	$prevDiv: $div
+	$div: 2
+	@media only screen and (max-width: $withBorders * $prevDiv)
+		+projectTiles($ph,1,null,0%)
+		border-right: 0px
+		border-left:  0px
+		min-height: 117px
+		height: 117px
+	
+	@media only screen and (min-width: 320px) and (max-width: 480px)
+		+projectTiles($ph,1,null,0%)			
+		border-right: 0px
+		border-left:  0px
+		min-height: 117px
+		height: 117px
+
+	.project_button
+		+setElement(100%,100%,absolute)	
+
+	.project-name
+		$pnh: 26px
+		$pnp: 8px
+		$calculatedHeight: $pnh - ($pnp*2)
+		+setElement(80%,$calculatedHeight,absolute)
+		+setFont(12px,black,$fontFamilyBold,uppercase,auto,center)
+		left: 50%
+		+translateY(10px)
+		+transProp(all,.25s)
+		+backColor($percent_90_white)
+		margin-left: -40%
+		padding: $pnp
+		+borderRadius($pnh/2)
+
+		&.hidden
+			+translateY(-30px)
+
+	.project-details-butn
+		$w: 180px
+		$h: $w
+
+		$ptop: (180px/3px) - 5px
+		$pleft: 10px
+
+		$fwidth: $w - ($pleft*2)
+		$fheight: $h - ($ptop*2)
+
+		+setElement($fwidth,$fheight,absolute)
+		+setPos(50%,50%)
+		+backColor($percent_90_white)
+		+notSelectable()
+
+		//=setFont($fontSize: 12px, $color: $main, $family: $fontFamily, $transform: none, $lineHeight: auto, $align: left, $fontWeight: normal, $fontStyle: normal)
+		+setFont(30px,black,$fontFamilyBold,uppercase,34px,center)
+
+		+borderRadius($w/2)
+		+rotate2D(0deg)
+		+opacity(1)
+		+transProp(all,.5s)
+
+		margin-left: -($w/2)
+		margin-top: -($h/2)
+		padding: $ptop $pleft
+	
+		&.hidden
+			+rotate2D(360deg)
+			+opacity(0)
+
+	
+			
+
+
+		

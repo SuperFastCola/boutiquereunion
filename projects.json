@@ -1,0 +1,25 @@
+{
+"types":["about","services","all","front-end","back-end","print","design","illustration","contact"],
+"contents":[
+	{
+		"type":["about"],
+		"title":"About Me",
+		"body":"<p>Coming Soon</p>",
+		"contentFile": "resume.html",
+		"image":"teenbeach2.jpg"
+	}
+],
+"projects":[
+	{
+		"name":"Teen Beach Beats",
+		"description":"Sound Mixing App",
+		"role":"Conceptual UX Design, Development and Deployment",
+		"tech":"Amazon Web Services, Javascript, HTML5 audio, Jquery, Responsive Web Development, CSS3, JSON, MySQL, PHP, Facebook Integration and Linux Administration",
+		"image":"teenbeach2.jpg",
+		"url":"http://teenbeach2.deluxeluxury.com/",
+		"id":"teenbeach",
+		"type":["front-end"],
+		"slow":true,
+		"mobile":true
+	}]
+}
