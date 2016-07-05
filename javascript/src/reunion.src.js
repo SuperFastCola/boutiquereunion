@@ -25,49 +25,6 @@
 		$scope.excludeIllos = true;
 		$scope.selectedProject = null;
 
-		$scope.createHamburger = function(rotate){
-			var menu = document.getElementById("hamburger");
-			var c = menu.getContext("2d");
-			var w = 40;
-			var h = 40;
-			var lines = 3;
-			var lineLength = 20;
-			var lineWidth = 3;
-			var lineColor = "#fff";
-			var lineSpacing = 7.25;
-			var lineStart = 12;
-
-			menu.width = w
-			menu.height = h;
-			c.clearRect(0,0,w,w);
-			c.globalAlpha = 1;
-
-	  		for(var i=0; i<lines;i++){
-	  			var positionY = (i==0)? lineStart : lineStart + (lineSpacing * i);
-
-	  			var padding = (w - lineLength)/2;
-
-	  			c.beginPath();
-	  			c.lineWidth = lineWidth;
-	  			c.strokeStyle = lineColor;
-	  			c.lineCap="round";
-	  			
-	  			if(typeof rotate != "undefined" && rotate){
-					c.moveTo(positionY,padding);
-					c.lineTo(positionY,w - padding);
-				}
-				else{
-					c.moveTo(padding,positionY);
-					c.lineTo(w - padding,positionY);	
-				}
-
-				c.stroke();
-	  		}	
-
-	  		$scope.$broadcast('scrollTop',{"scrollTop":0})
-	  		
-		}
-
 		$scope.currentDate = new Date();
 		$scope.cacheBuster = 0;
 		$scope.clipBody = false;
@@ -129,7 +86,6 @@
 			$scope.types = response.types;
 			$scope.projects = response.projects;
 			$scope.contents = response.contents;
-			$scope.createHamburger();
 			$scope.getPath();
 		}
 

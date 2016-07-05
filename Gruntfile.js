@@ -24,7 +24,14 @@ module.exports = function(grunt) {
                 }
             }
         },
-
+        inject: {
+          single: {
+            scriptSrc: 'javascript/src/reunion.loader.js',
+            files: {
+              'index.html': 'src/index.html'
+            }
+          }
+        },
         concat: {
             options: {
               separator: ';',
@@ -34,14 +41,33 @@ module.exports = function(grunt) {
               dest: 'javascript/reunion.js',
             },
         },
+        replace: {
+          dist: {
+            options: {
+              patterns: [
+                {
+                  match: 'includecss',
+                  replacement: '<%= grunt.file.read("css/src/reunion.loading.css") %>'
+                }
+              ]
+            },
+            files: [
+              {expand: true, flatten: true, src: ['./index.html'], dest: './'}
+            ]
+          }
+        },
         watch: {
+            html: {
+                files: ['src/index.html'],
+                tasks: ['inject']
+            },
             css: {
                 files: ['css/src/reunion.styles.sass'],
                 tasks: ['sass']
             },
             scripts: {
-                files: 'javascript/src/reunion.src.js',
-                tasks: ['uglify','concat']
+                files: ['javascript/src/reunion.src.js','javascript/src/reunion.loader.js'],
+                tasks: ['inject','uglify','concat']
             }
         }
 
@@ -52,7 +78,9 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-inject');
+    grunt.loadNpmTasks('grunt-replace');
     
     // Default task(s).
-    grunt.registerTask('default', ['uglify','sass','concat','watch']);
+    grunt.registerTask('default', ['inject', 'uglify','sass','replace','concat','watch']);
 };
