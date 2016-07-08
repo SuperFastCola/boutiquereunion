@@ -15,6 +15,7 @@
 
 	var loader = new Object();
 	loader.elementId = "loader";
+	loader.elementMessageId = "loading_message";
 	loader.classInitial = "clip_car";
 	loader.classFinished = "right";
 
@@ -126,7 +127,7 @@
 		//loadOtherScripts(scriptsloaded);
 
 		if(scriptsloaded>scripts.length){
-			document.getElementById("loading_message").innerHTML = loadingMessages.finished;
+			document.getElementById(loader.elementMessageId).innerHTML = loadingMessages.finished;
 		}
 
 		if(scriptsloaded==scripts.length){
@@ -237,7 +238,7 @@
 	}
 	else{
 		document.getElementById(loader.elementId).className="";
-		document.getElementById("loading_message").innerHTML = loadingMessages.legacy;	
+		document.getElementById(loader.elementMessageId).innerHTML = loadingMessages.legacy;	
 	}
 
 })();

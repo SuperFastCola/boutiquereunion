@@ -12,15 +12,13 @@ module.exports = function(grunt) {
                 }
             }
         },
-        sass: {
-            options: {
-                sourcemap: 'none',
-                trace: true,
-                style: 'none'
-            },
-            compile: {
-                files: {
-                  'css/reunion.styles.css': 'css/src/reunion.styles.sass',
+        compass: {
+            dist: {
+                options: {
+                    sassDir: 'css/scss',
+                    cssDir: 'css',
+                    environment: 'development',
+                    outputStyle: 'nested'
                 }
             }
         },
@@ -62,8 +60,8 @@ module.exports = function(grunt) {
                 tasks: ['inject']
             },
             css: {
-                files: ['css/src/reunion.styles.sass'],
-                tasks: ['sass']
+                files: ['css/scss/reunion.styles.scss'],
+                tasks: ['compass']
             },
             scripts: {
                 files: ['javascript/src/reunion.src.js','javascript/src/reunion.loader.js'],
@@ -75,12 +73,12 @@ module.exports = function(grunt) {
 
     // Load required modules
     grunt.loadNpmTasks('grunt-contrib-concat');
-    grunt.loadNpmTasks('grunt-contrib-sass');
+    grunt.loadNpmTasks('grunt-contrib-compass');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-inject');
     grunt.loadNpmTasks('grunt-replace');
     
     // Default task(s).
-    grunt.registerTask('default', ['inject', 'uglify','sass','replace','concat','watch']);
+    grunt.registerTask('default', ['inject', 'uglify','compass','replace','concat','watch']);
 };
