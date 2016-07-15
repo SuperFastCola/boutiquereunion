@@ -8,81 +8,7 @@
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<link rel="stylesheet" type="text/css" href="css/reunion.styles.css">
 <!--	<style type="text/css">
-			body.clip_car{
-			overflow: hidden;
-			background-color: white;
-		}
-
-		@keyframes car_shaking
-		{
-			from {bottom:0%;}
-			to {bottom:1%;}
-		}
-
-		@-webkit-keyframes car_shaking /* Safari and Chrome */
-		{
-			from {bottom:0%;}
-			to {bottom:1%;}
-		}
-
-		#loader{
-			position: absolute;
-			left: 50%;
-			top: 50%;
-			width: 250px;
-			height: 250px;
-			margin: -125px 0px 0px -125px;
-/*			border: 1px solid red;
-*/
-			-webkit-transition: left 2s;
-			-moz-transition: left 2s;
-			-o-transition: left 2s;
-			transition: left 2s;
-		}
-
-		#loader.left{
-			left: -50%;
-		}
-
-		#loader.right{
-			left: 150%;
-		}
-
-		#loader span{
-			position: absolute;
-			left: 50%;
-			bottom: 145px;
-			height: 30px;
-			border-right: 1px solid #ababab;
-		}
-
-		#loading_message{
-			position: absolute;
-			width: 100%;
-			height: 60px;
-			font-size: 24px;
-			font-family: Georgia, Times, "Times New Roman", serif;
-			font-weight: normal;
-			font-style: normal;
-			color: #000;
-			text-align: center;
-		}
-
-		#loading_message i,#loading_message a{
-			display: block;
-			font-size: 18px;
-		}
-
-		#loader a, #loader a:link{
-			color: #ff00d8;
-			font-size: 14px !important;
-			text-decoration: none;
-		}
-
-
-		#container,#portfolio_header,#navigation{
-			display: none;
-		}
+	@@includecss
 	</style>
 -->
 </head>
@@ -110,7 +36,19 @@
 			</div>
 		</div>
 		<div class="slideshow">
+			<a class="slide_butn right">
+				<svg class="icon arrow">
+					<path class="symbol" d="M 19 10 L 35 25.25 L 19 40" />
+				</svg>
+			</a>
+			<a class="slide_butn left">
+				<svg class="icon arrow">
+					<path class="symbol" d="M 33 10 L 16 25.25 L 33 40" />
+				</svg>
+			</a>
+			<div class="slide photo1">
 
+			</div>
 		</div>
 		<div class="marques">
 			
@@ -126,9 +64,9 @@
 	var links = new Array();
 	links.push("/css/reunion.styles.css");
 
-	var cssFontLinks = new Array();
-	cssFontLinks.push("http://fonts.googleapis.com/css?family=Oswald%7CKarla:400,400italic,700,700italic");
-	cssFontLinks.push("http://fonts.googleapis.com/css?family=Average");
+	// var cssFontLinks = new Array();
+	// cssFontLinks.push("http://fonts.googleapis.com/css?family=Oswald%7CKarla:400,400italic,700,700italic");
+	// cssFontLinks.push("http://fonts.googleapis.com/css?family=Average");
 	
 	var scripts = new Array();
 	scripts.push("/javascript/reunion.js");
@@ -345,13 +283,15 @@
 	function loadCSSFontLinks(){
 		var head = document.head || document.getElementsByTagName("head")[0];
 
-		for(var i =0;i<cssFontLinks.length;i++){
+		if(typeof cssFontLinks != "undefined"){
+			for(var i =0;i<cssFontLinks.length;i++){
+				var l = document.createElement("link");
+				l.href = cssFontLinks[i];
+				l.rel = "stylesheet";
+				l.type = "text/css";
+				head.appendChild(l);
+			}
 
-			var l = document.createElement("link");
-			l.href = cssFontLinks[i];
-			l.rel = "stylesheet";
-			l.type = "text/css";
-			head.appendChild(l);
 		}
 
 	}

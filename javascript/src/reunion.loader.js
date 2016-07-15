@@ -3,9 +3,9 @@
 	var links = new Array();
 	links.push("/css/reunion.styles.css");
 
-	var cssFontLinks = new Array();
-	cssFontLinks.push("http://fonts.googleapis.com/css?family=Oswald%7CKarla:400,400italic,700,700italic");
-	cssFontLinks.push("http://fonts.googleapis.com/css?family=Average");
+	// var cssFontLinks = new Array();
+	// cssFontLinks.push("http://fonts.googleapis.com/css?family=Oswald%7CKarla:400,400italic,700,700italic");
+	// cssFontLinks.push("http://fonts.googleapis.com/css?family=Average");
 	
 	var scripts = new Array();
 	scripts.push("/javascript/reunion.js");
@@ -222,13 +222,15 @@
 	function loadCSSFontLinks(){
 		var head = document.head || document.getElementsByTagName("head")[0];
 
-		for(var i =0;i<cssFontLinks.length;i++){
+		if(typeof cssFontLinks != "undefined"){
+			for(var i =0;i<cssFontLinks.length;i++){
+				var l = document.createElement("link");
+				l.href = cssFontLinks[i];
+				l.rel = "stylesheet";
+				l.type = "text/css";
+				head.appendChild(l);
+			}
 
-			var l = document.createElement("link");
-			l.href = cssFontLinks[i];
-			l.rel = "stylesheet";
-			l.type = "text/css";
-			head.appendChild(l);
 		}
 
 	}

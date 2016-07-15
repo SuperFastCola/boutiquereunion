@@ -1,6 +1,6 @@
 @import "../bourbon/bourbon";
 @import "../neat/neat";
-@import url(//fonts.googleapis.com/css?family=Roboto:300italic,400italic,700italic,400,700,300);
+// @import url(//fonts.googleapis.com/css?family=Roboto:300italic,400italic,700italic,400,700,300);
 
 $rose: rgba(244,155,126,1);  /* HEX f49b7e */
 $taupe: rgba(167,163,146,1); /* HEX a7a392 */
@@ -8,6 +8,24 @@ $gris: rgba(60,60,59,1);
 
 @mixin bdr($w: 1px, $color: red){
 	border: $w solid $color;
+}
+
+@mixin opacity($amt){
+	opacity: $amt;
+	-moz-opacity: $amt;
+	$msamt: ($amt * 100);
+	filter: "alpha(opacity = #{msamt})";
+}
+
+@mixin buttonBehavior($color: #fff){
+	text-decoration: none;
+	@include opacity(1);
+	@include transition(all,.25s);
+	cursor: pointer;
+
+	&:hover{
+		@include opacity(.7);
+	}
 }
 
 *{
@@ -36,7 +54,9 @@ html,body{
 }
 
 
-$breakpoint_1: max-width 600px;
+$breakpoint_small: max-width 600px;
+$breakpoint_medium: min-width 800px;
+$breakpoint_large: min-width 1200px;
 
 .container{
 	$width: 100%;
@@ -56,8 +76,8 @@ $breakpoint_1: max-width 600px;
 		border-top: $bdrtop solid $rose;
 		border-bottom: $bdrbot solid $rose;
 
-		@include media($breakpoint_1){
-			$height: 100px;
+		@include media($breakpoint_small){
+			$height: 90px;
 			$bdrtop: 8px;
 			$bdrbot: 2px;
 
@@ -72,39 +92,46 @@ $breakpoint_1: max-width 600px;
 			left: 34px;
 			margin: 15px 0px 0px 0px;
 
-			@include media($breakpoint_1){
-				width: 130px;
+			@include media($breakpoint_small){
+				width: 144px;
 				left: 10px;
-				margin: 16px 0px 0px 0px;
+				margin: 14px 0px 0px 0px;
 
 			}
 		}
 
 		.tagline-holder{
 
-			display: inline-block;
+			display: block;
 			width: 194px;
-			margin: 34px 150px 0px 0px;
+			margin: 30px 150px 0px 0px;
 			float: right;
 
-			@include media($breakpoint_1){
-  				width: 140px;
-				margin: 20px 10px 0px 0px;
+			@include media($breakpoint_small){
+  				width: 130px;
+				margin: 18px 10px 0px 0px;
   			}
 
 			.tagline{
 				display: block;
 				width: 100%;
 
+				&.cuisine{
+					@include media($breakpoint_small){
+						// margin-left: 3px;
+					}
+				}
+
 				&.verdun{
 					display: block;
-					width: 25%;
+					width: 50%;
+					padding-top: 12px;
 					float: right;
-					padding-top: 16px;
 
-					@include media($breakpoint_1){
-						width: 35%;
+					@include media($breakpoint_small){
+						width: 60%;
 						padding-top: 8px;
+						display:none;
 					}
 				}
 			}
@@ -121,14 +148,13 @@ $breakpoint_1: max-width 600px;
 			top: 50%;
 			border-left: 1px solid $rose;
 
-			@include media($breakpoint_1){
+			@include media($breakpoint_small){
 				@include transform(scale(0.8));
-				@include bdr;
 				border-left: 0px;
 				z-index: 20;
-				width: 90px;
+				width: 74px;
 				height: 30px;
-				margin: -50px 0px 0px -90px;
+				margin: -42px 0px 0px -76px;
 				padding:0px;
 				left: 100%;
 				top: 100%;
@@ -141,7 +167,7 @@ $breakpoint_1: max-width 600px;
 				top: 50%;
 				margin-top: -15px;
 
-				@include media($breakpoint_1){
+				@include media($breakpoint_small){
 					top: 0%;
 					margin-top: 0px;
 				}
@@ -149,16 +175,17 @@ $breakpoint_1: max-width 600px;
 				&.icon_facebook{
 					left: 28px;
 					
-					@include media($breakpoint_1){
-
+					@include media($breakpoint_small){
+						left: 0px;
 					}
 				}	
 
 				&.icon_instagram{
 					left: 70px;
 
-					@include media($breakpoint_1){
-						
+					@include media($breakpoint_small){
+						left: 100%;
+						margin-left: -30px;
 					}
 				}	
 			}
@@ -189,6 +216,94 @@ $breakpoint_1: max-width 600px;
 			width: 100%;
 			height: 100%;
 			display: block;
+		}
+	}
+
+	.slideshow{
+		height: 420px;
+		position: relative;
+
+			@include media($breakpoint_small){
+				height: 200px;
+			}
+
+			@include media($breakpoint_large){
+				height: 500px;
+			}
+
+		.slide_butn{
+			position: absolute;
+			display: block;
+			width: 55px;
+			height: 55px;
+			padding: 0px;
+			margin: 0px;
+			background-color: $gris;
+			top: 70%;
+
+			@include buttonBehavior;
+
+			&.right{
+				z-index: 10;
+				right: 0%;
+				@include border-left-radius(27px);
+
+				.arrow{
+					left: 4px;
+				}
+			}
+
+			&.left{
+				z-index: 20;
+				@include border-right-radius(27px);
+
+				.arrow{
+					right: 0px;
+				}
+			}
+
+			.arrow{
+				position: absolute;
+				top: 0%;
+				width: 100%;
+				height: 100%;
+				padding:0px;
+				margin:0px;
+				display: block;
+				@include transform(scale(0.7));
+
+				.symbol{
+					fill: transparent;
+					stroke: $rose;
+					stroke-width: 4;
+				}
+			}
+		}	
+
+
+		.slide{
+			width: 100%;
+			height: 100%;
+
+			&.photo1{
+				background-image: url(/images/full/photo_vedette_1.jpg);
+				background-size: 100% auto;
+				background-position: center 65%;
+				background-repeat: no-repeat;
+
+				@include media($breakpoint_small){
+					background-size: 140% auto;
+					background-position: center 70%;
+				}
+
+				@include media($breakpoint_large){
+					background-position: center 70%;
+				}
+
+				@include media(min-width 1800px){
+					background-position: center 50%;
+				}
+			}
 		}
 	}
 
