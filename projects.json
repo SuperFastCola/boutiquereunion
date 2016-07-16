@@ -1,25 +1,180 @@
 {
-"types":["about","services","all","front-end","back-end","print","design","illustration","contact"],
-"contents":[
+"types":[
+			,
+			"Batteries de Cuisine",
+			"Couteaux",
+			"Outils",
+			"Café",
+			"Verres",
+			"Petits électros",
+			"Magazines"
+			],
+"marques":[
+	"Artisans":[
+		{
+			"name":"Toma Objets",
+			"url":"http://www.tomaobjects.com/"
+		},
+		{
+			"name":"Milan",
+			"url":"http://milandesign.co/"
+		},
+		{
+			"name":"Hugo Didier",
+			"url":"http://www.hugodidier.com/"
+		},
+		{
+			"name":"Petits Mots",
+			"url":"http://www.petitsmots.ca/"
+		},
+		{
+			"name":"Zelove",
+			"url":"http://zelove.ca"
+		},
+		{
+			"name":"Famille Nomade",
+			"url":"http://www.famillenomade.ca/"
+		},
+		{
+			"name":"Panoplie",
+			"url":"http://panoplie.ca"
+		},
+		{
+			"name":"Baleco OH",
+			"url":"http://www.baleco.ca"
+		},
+		{
+			"name":"Caron et Doucet",
+			"url":"http://www.carondoucet.com"
+		},
+		{
+			"name":"Quelle Histoire",
+			"url":"https://quelle-histoire.com/"
+		}
+	],
+	
 	{
-		"type":["about"],
-		"title":"About Me",
-		"body":"<p>Coming Soon</p>",
-		"contentFile": "resume.html",
-		"image":"teenbeach2.jpg"
-	}
-],
-"projects":[
+		"name":"Cristel France",
+		"url":"http://www.cristel.com/"
+	},
 	{
-		"name":"Teen Beach Beats",
-		"description":"Sound Mixing App",
-		"role":"Conceptual UX Design, Development and Deployment",
-		"tech":"Amazon Web Services, Javascript, HTML5 audio, Jquery, Responsive Web Development, CSS3, JSON, MySQL, PHP, Facebook Integration and Linux Administration",
-		"image":"teenbeach2.jpg",
-		"url":"http://teenbeach2.deluxeluxury.com/",
-		"id":"teenbeach",
-		"type":["front-end"],
-		"slow":true,
-		"mobile":true
+		"name":"Cuisinox",
+		"url":"http://www.cuisinox.com/"
+	},
+	{
+		"name":"Staub",
+		"url":"https://www.staub-online.com"
+	},
+	{
+		"name":"Emile Henry",
+		"url":"http://www.emilehenry.com/"
+	},
+	{
+		"name":"Lodge",
+		"url":"https://www.lodgemfg.com/"
+	},
+	{
+		"name":"De Buyer",
+		"url":"http://www.debuyer.com/"
+	},
+	{
+		"name":"Whustof",
+		"url":"http://www.wusthof.com"
+	},
+	{
+		"name":"Global",
+		"url":"http://global-knife.com"
+	},
+	{
+		"name":"Victorinox",
+		"url":"https://www.victorinox.com"
+	},
+	{
+		"name":"Opinel",
+		"url":"http://www.opinel.com/"
+	},
+	{
+		"name":"Microplane",
+		"url":"http://ca.microplane.com"
+	},
+	{
+		"name":"Epicurean",
+		"url":"http://www.epicureancs.com"
+	},
+	{
+		"name":"Ricardo",
+		"url":"http://boutique.ricardocuisine.com"
+	},
+	{
+		"name":"Cuisipro",
+		"url":"http://www.cuisipro.com/"
+	},
+	{
+		"name":"OXO Good Grips",
+		"url":"https://www.oxo.com/"
+	},
+	{
+		"name":"Zyliss",
+		"url":"https://www.zylissusa.com"
+	},
+	{
+		"name":"CDN",
+		"url":"http://www.cdnw.com/"
+	},
+	{
+		"name":"Pulltex",
+		"url":"http://www.pulltex.com/"
+	},
+	{
+		"name":"Peugeot",
+		"url":"http://www.peugeot-saveurs.com/"
+	},
+	{
+		"name":"Redecker",	"url":"http://www.redecker.de"
+	},
+	{
+		"name":"Escali",
+		"url":"http://www.escali.com/"
+	},
+	{
+		"name":"Kinto",
+		"url":"http://www.kinto.co.jp/"
+	},
+	{
+		"name":"Bialetti",
+		"url":"http://www.bialetti.com/"
+	},
+	{
+		"name":"Riedel",
+		"url":"http://www.riedel.com/"
+	},
+	{
+		"name":"Duralex",
+		"url":"http://www.duralex.com/"
+	},
+	{
+		"name":"Nespresso",
+		"url":"https://www.nespresso.com"
+	},
+	{
+		"name":"Cuisinart",
+		"url":"http://www.cuisinart.com/"
+	},
+	{
+		"name":"Dinette",
+		"url":"http://dinettemagazine.com/"
+	},
+	{
+		"name":"Caribou",
+		"url":"http://cariboumag.com/"
+	},
+	{
+		"name":"Bouffe",
+		"url":"http://bouffemedia.ca/"
+	},
+	{
+		"name":"Trois fois par jour",
+		"url":"http://www.troisfoisparjour.com/"
 	}]
 }
+

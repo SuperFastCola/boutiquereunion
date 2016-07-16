@@ -198,24 +198,40 @@ html, body {
         opacity: 0.7;
         -moz-opacity: 0.7;
         filter: "alpha(opacity = msamt)"; }
-      /* line 246, scss/reunion.styles.scss */
+      @media screen and (max-width: 600px) {
+        /* line 234, scss/reunion.styles.scss */
+        .container .slideshow .slide_butn {
+          -webkit-transform: scale(0.8);
+          -moz-transform: scale(0.8);
+          -ms-transform: scale(0.8);
+          -o-transform: scale(0.8);
+          transform: scale(0.8); } }
+      /* line 250, scss/reunion.styles.scss */
       .container .slideshow .slide_butn.right {
         z-index: 10;
         right: 0%;
         border-bottom-left-radius: 27px;
         border-top-left-radius: 27px; }
-        /* line 251, scss/reunion.styles.scss */
+        @media screen and (max-width: 600px) {
+          /* line 250, scss/reunion.styles.scss */
+          .container .slideshow .slide_butn.right {
+            right: -2%; } }
+        /* line 259, scss/reunion.styles.scss */
         .container .slideshow .slide_butn.right .arrow {
           left: 4px; }
-      /* line 256, scss/reunion.styles.scss */
+      /* line 264, scss/reunion.styles.scss */
       .container .slideshow .slide_butn.left {
         z-index: 20;
         border-bottom-right-radius: 27px;
         border-top-right-radius: 27px; }
-        /* line 260, scss/reunion.styles.scss */
+        @media screen and (max-width: 600px) {
+          /* line 264, scss/reunion.styles.scss */
+          .container .slideshow .slide_butn.left {
+            left: -2%; } }
+        /* line 272, scss/reunion.styles.scss */
         .container .slideshow .slide_butn.left .arrow {
           right: 0px; }
-      /* line 265, scss/reunion.styles.scss */
+      /* line 277, scss/reunion.styles.scss */
       .container .slideshow .slide_butn .arrow {
         position: absolute;
         top: 0%;
@@ -229,31 +245,31 @@ html, body {
         -ms-transform: scale(0.7);
         -o-transform: scale(0.7);
         transform: scale(0.7); }
-        /* line 275, scss/reunion.styles.scss */
+        /* line 287, scss/reunion.styles.scss */
         .container .slideshow .slide_butn .arrow .symbol {
           fill: transparent;
           stroke: #f49b7e;
           stroke-width: 4; }
-    /* line 284, scss/reunion.styles.scss */
+    /* line 296, scss/reunion.styles.scss */
     .container .slideshow .slide {
       width: 100%;
       height: 100%; }
-      /* line 288, scss/reunion.styles.scss */
+      /* line 300, scss/reunion.styles.scss */
       .container .slideshow .slide.photo1 {
         background-image: url(/images/full/photo_vedette_1.jpg);
         background-size: 100% auto;
         background-position: center 65%;
         background-repeat: no-repeat; }
         @media screen and (max-width: 600px) {
-          /* line 288, scss/reunion.styles.scss */
+          /* line 300, scss/reunion.styles.scss */
           .container .slideshow .slide.photo1 {
             background-size: 140% auto;
             background-position: center 70%; } }
         @media screen and (min-width: 1200px) {
-          /* line 288, scss/reunion.styles.scss */
+          /* line 300, scss/reunion.styles.scss */
           .container .slideshow .slide.photo1 {
             background-position: center 70%; } }
         @media screen and (min-width: 1800px) {
-          /* line 288, scss/reunion.styles.scss */
+          /* line 300, scss/reunion.styles.scss */
           .container .slideshow .slide.photo1 {
             background-position: center 50%; } }

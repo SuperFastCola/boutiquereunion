@@ -1,0 +1,291 @@
+/*http://i-skool.co.uk/mobile-development/web-design-for-mobiles-and-tablets-viewport-sizes/*/
+/*At least requires the meta viewport tag with content  'width=device-width'*/
+@media only screen and (max-width: 1080px) and (orientation : portrait) {
+  /* PORTRAIT:
+	Windows Surface Pro*/
+}
+
+@media only screen and (max-width: 800px) and (orientation : portrait) {
+	/* PORTRAIT:
+	Acer Iconia Tab A100
+	Acer Iconia Tab A200
+	Acer Iconia Tab A502
+	Arnova 8C G3
+	ASUS Padfone
+	ASUS Transformer Pad TF300T
+	ASUS Transformer TF101
+	Motorola Xoom
+	Motorola Xoom 2
+	Samsung Galaxy Note 10.1
+	Samsung Galaxy Tab 8.9
+	Samsung Galaxy Tab 10.1
+	Samsung Galaxy Tab 10.1*/
+}
+
+@media only screen and (max-width: 768px) and (orientation : portrait) {
+	/* PORTRAIT:
+	Apple iPad
+	Apple iPad 2
+	Apple iPad 3 (and 4)
+	Apple iPad Mini
+	Archos 80G9
+	BAUHN AMID-972XS
+	HP Touchpad
+	LG Optimus Pad
+	Microsoft Surface (RT)
+	Panasonic Toughpad A1
+	Kindle Paperwhite*/
+}
+
+@media only screen and (max-width: 640px) and (orientation : portrait) {
+	/* PORTRAIT:
+	Acer Iconia Tab A500
+	Arnova 7FG3
+	Nexus 7*/
+}
+
+@media only screen and (max-width: 600px) and (orientation : portrait) {
+	/* PORTRAIT:
+	Acer Iconia Tab A101
+	Archos 70b (it2)
+	Arnova 10b G3
+	BlackBerry PlayBook
+	Kindle 3
+	Kobo eReader Touch
+	Samsung Galaxy Tab 2 7.0
+	Samsung Galaxy Tab 7*/
+}
+
+@media only screen and (max-width: 540px) and (orientation : portrait) {
+	/* PORTRAIT:
+	HTC Evo 3D
+	Kindle Fire HD 7
+	Kindle Fire HD 8.9
+	Ainol Novo 7 Elf 2*/
+}
+
+@media only screen and (max-width: 480px) and (orientation : portrait) {
+	/* PORTRAIT:
+	Arnova 7 G2
+	BlackBerry Bold 9780
+	HTC Desire Z
+	Nokia N900
+	Samsung Galaxy Grand*/
+}
+
+@media only screen and (max-width: 400px) and (orientation : portrait) {
+	/* PORTRAIT:
+	Samsung Galaxy Note
+	Nexus 4
+	HTC One S
+	HTC One XL
+	HTC Sensation XL
+	HTC Velocity 4G
+	Motorola Droid3
+	Motorola Droid Razr
+	Motorola Razr HD 4G
+	Motorola Razr M 4G
+	Nokia 500
+	Samsung Galaxy Note 2
+	Samsung Galaxy S3
+	BlackBerry Bold 9900
+	BlackBerry 9520
+	BlackBerry Z10*/
+}
+
+@media only screen and (max-width: 360px) and (orientation : portrait) {
+	/* PORTRAIT:
+	Apple iPhone 3G
+	Apple iPhone 3GS
+	Apple iPhone 4
+	Apple iPhone 4S
+	Apple iPhone 5
+	Apple iPod Touch
+	BlackBerry Bold 9360
+	BlackBerry Bold 9790
+	BlackBerry Curve 9320
+	BlackBerry Curve 9380
+	BlackBerry Torch 9800
+	BlackBerry Torch 9810
+	HP Veer
+	HTC 7 Mozart
+	HTC 7 Trophy
+	HTC Desire
+	HTC Desire C
+	HTC Desire HD
+	HTC Legend
+	HTC One V
+	HTC Titan 4G
+	HTC Wildfire S
+	HTC Windows Phone 8X
+	Huawei U8650
+	LG Optimus 2X
+	LG Optimus L3
+	Motorola Defy
+	Motorola Milestone
+	Nexus S
+	Nokia Lumia 610
+	Nokia Lumia 710
+	Nokia Lumia 800
+	Nokia Lumia 820
+	Nokia Lumia 900
+	Nokia Lumia 920
+	Samsung Galaxy Ace
+	Samsung Galaxy Ace 2
+	Samsung Galaxy S2
+	Sony Xperia E Dual
+	BlackBerry Curve 9300*/
+}
+
+@media only screen and (max-width: 240px) and (orientation : portrait) {
+	/* PORTRAIT:
+	LG Viewty KU990
+	Nokia 700
+	Nokia 2700
+	Nokia N95
+	Samsung Galaxy S3 Mini
+	Nokia 300*/
+}
+
+@media only screen and (max-width: 1920px) and (orientation : landscape) {
+	/* LANDSCAPE:
+	Windows Surface Pro*/
+}
+
+@media only screen and (max-width: 1366px) and (orientation : landscape) {
+	/* LANDSCAPE:
+	Microsoft Surface (RT)*/
+}
+
+@media only screen and (max-width: 1280px) and (orientation : landscape) {
+	/* LANDSCAPE:
+	Acer Iconia Tab A100
+	Acer Iconia Tab A200
+	Acer Iconia Tab A502
+	ASUS Transformer Pad TF300T
+	ASUS Transformer TF101
+	Motorola Xoom
+	Motorola Xoom 2
+	Samsung Galaxy Note 10.1
+	Samsung Galaxy Tab 8.9
+	Samsung Galaxy Tab 10.1
+	Samsung Galaxy Tab 10.1
+	LG Optimus Pad
+	Acer Iconia Tab A500*/
+}
+
+@media only screen and (max-width: 1130px) and (orientation : landscape) {
+	/* LANDSCAPE:
+	ASUS Padfone
+	Arnova 8C G3
+	Arnova 7FG3*/
+}
+
+@media only screen and (max-width: 1024px) and (orientation : landscape) {
+	/* LANDSCAPE:
+	Apple iPad
+	Apple iPad 2
+	Apple iPad 3 (and 4)
+	Apple iPad Mini
+	Archos 80G9
+	BAUHN AMID-972XS
+	HP Touchpad
+	Panasonic Toughpad A1
+	Acer Iconia Tab A101
+	Archos 70b (it2)
+	Arnova 10b G3
+	BlackBerry PlayBook
+	Samsung Galaxy Tab 2 7.0
+	Samsung Galaxy Tab 7
+	Ainol Novo 7 Elf 2*/
+}
+
+@media only screen and (max-width: 980px) and (orientation : landscape) {
+	/* LANDSCAPE:
+	Nexus 7
+	HTC Evo 3D*/
+}
+
+@media only screen and (max-width: 802px) and (orientation : landscape) {
+	/* LANDSCAPE:
+	Kindle Fire HD 7
+	Kindle Fire HD 8.9
+	Arnova 7 G2
+	HTC Desire Z
+	Nokia N900
+	Samsung Galaxy Grand*/
+}
+
+@media only screen and (max-width: 691px) and (orientation : landscape) {
+	/* LANDSCAPE:
+	BlackBerry 9520*/
+}
+
+@media only screen and (max-width: 640px) and (orientation : landscape) {
+	/* LANDSCAPE:
+	Samsung Galaxy Note
+	HTC One S
+	HTC One XL
+	HTC Sensation XL
+	HTC Velocity 4G
+	Motorola Droid Razr
+	Nokia 500
+	Samsung Galaxy Note 2
+	Samsung Galaxy S3*/
+}
+/*https://gist.githubusercontent.com/francoishill/6483997/raw/998d5c46ae57207befe470afba154579ca8ed3c2/gistfile1.css*/
+@media only screen and (max-width: 600px) and (orientation : landscape) {
+	/* LANDSCAPE:
+	Motorola Droid3
+	Nexus 4
+	Motorola Razr HD 4G
+	Motorola Razr M 4G
+	Motorola Defy
+	Motorola Milestone
+	Apple iPhone 5
+	HP Veer*/
+}
+
+@media only screen and (max-width: 540px) and (orientation : landscape) {
+	/* LANDSCAPE:
+	HTC Desire
+	HTC Desire HD
+	HTC One V
+	LG Optimus 2X
+	Nexus S
+	Samsung Galaxy Ace 2
+	Samsung Galaxy S2
+	BlackBerry Z10*/
+}
+
+@media only screen and (max-width: 480px) and (orientation : landscape) {
+	/* LANDSCAPE:
+	Apple iPhone 3G
+	Apple iPhone 3GS
+	Apple iPhone 4
+	Apple iPhone 4S
+	Apple iPod Touch
+	BlackBerry Torch 9800
+	BlackBerry Torch 9810
+	HTC 7 Mozart
+	HTC 7 Trophy
+	HTC Desire C
+	HTC Legend
+	HTC Titan 4G
+	HTC Wildfire S
+	HTC Windows Phone 8X
+	Huawei U8650
+	Nokia Lumia 610
+	Nokia Lumia 710
+	Nokia Lumia 800
+	Nokia Lumia 820
+	Nokia Lumia 900
+	Nokia Lumia 920
+	Samsung Galaxy Ace
+	Sony Xperia E Dual*/
+}
+
+@media only screen and (max-width: 320px) and (orientation : landscape) {
+	/* LANDSCAPE:
+	Samsung Galaxy S3 Mini*/
+}

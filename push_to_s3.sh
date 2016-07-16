@@ -3,10 +3,10 @@
 #!/bin/sh
 #change user,group and perms for multplie directoies
 
-directorypattern="(css|javascript)"
+directorypattern="(css|javascript|images)"
 filepattern="(html|json)"
 excludeslash="\/"
-bucket="--.com"
+bucket="staging.boutiquereunion.com"
 bucketfullpath="s3://$bucket/"
 uploadfrom=${PWD} #can put an entire path here - right now set to current working directory	
 

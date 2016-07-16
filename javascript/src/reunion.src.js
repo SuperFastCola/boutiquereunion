@@ -17,22 +17,15 @@
 		return true;
 	});
 
-	app.controller('listProjects', function($scope, $compile, $rootScope, $http, $route, $routeParams, $location, $filter) {
+	app.controller('nosMarques', function($scope, $compile, $rootScope, $http, $route, $routeParams, $location, $filter) {
 		$scope.projects = null;
 		$scope.contents = null;
 		$scope.types = null;
 		$scope.selectedType = '';
-		$scope.excludeIllos = true;
 		$scope.selectedProject = null;
 
 		$scope.currentDate = new Date();
 		$scope.cacheBuster = 0;
-		$scope.clipBody = false;
-
-		$scope.returnClipBody = function(val){
-			$scope.clipBody = (typeof val == "undefined")?false:val;
-			return $scope.clipBody;
-		}
 
 		$scope.setBackgroundThumbnailImage = function(obj){
 
@@ -113,7 +106,7 @@
 			delete $scope.projectImage;
 			$scope.descriptionImageLoaded();
 			$scope.projectImage = '//:0';
-			$scope.setInfoExpandedForDevice();
+
 
 			if(typeof $event != "undefined"){
 				$event.stopPropagation();
@@ -121,7 +114,6 @@
 
 			window.scrollTo(0,0);
 
-			$scope.returnClipBody();
 			$scope.showDescription = !$scope.showDescription;
 
 		}
@@ -196,16 +188,6 @@
 
 		$http.get("/projects.json").success($scope.parseResponse);
 
-		$scope.hideHamburger = function(){
-			if($scope.showDescription){
-				return true;	
-			}
-			else{
-				return false;
-			}
-			
-		}
-
 		$scope.descriptionImageLoaded = function(){
 			if(this.projectImage!="//:0" && typeof this.projectImage != "undefined"){
 				return true;
@@ -226,7 +208,6 @@
 		}
 
 		$scope.checkMobile();
-		$scope.setInfoExpandedForDevice();
 
 		$scope.expandInfo = function(){
 			$scope.showAllInfo = !$scope.showAllInfo;
@@ -281,7 +262,6 @@
 
 		
 		$scope.loadImage = function(file){
-			console.log(file);
 
 			$http({
 					method: 'GET',
@@ -344,7 +324,6 @@
        		var scopeProjectProperties = (typeof scope.x != "undefined")?scope.x:$filter("filter")($scope.projects, {id:parts[2]})[0];
 
        		scopeParent.showDescription = !scopeParent.showDescription;
-        	scopeParent.returnClipBody(true);
 
         	if(typeof scopeProjectProperties.image != "undefined"){
         		scope.backgroundImage = scope.setBackgroundThumbnailImage({source:scopeProjectProperties.image,detail:true,returnURL:true});

@@ -243,10 +243,18 @@ $breakpoint_large: min-width 1200px;
 
 			@include buttonBehavior;
 
+			@include media($breakpoint_small){
+				@include transform(scale(0.8));
+			}
+
 			&.right{
 				z-index: 10;
 				right: 0%;
 				@include border-left-radius(27px);
+
+				@include media($breakpoint_small){
+					right: -2%;
+				}
 
 				.arrow{
 					left: 4px;
@@ -256,6 +264,10 @@ $breakpoint_large: min-width 1200px;
 			&.left{
 				z-index: 20;
 				@include border-right-radius(27px);
+
+				@include media($breakpoint_small){
+					left: -2%;
+				}
 
 				.arrow{
 					right: 0px;
