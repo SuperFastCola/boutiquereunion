@@ -50,11 +50,21 @@
 
 			</div>
 		</div>
-		<div class="marques" ng-controller="nosMarques">
-			
+
+		<div ng-app="reunion" class="zone-marques" ng-controller="nosMarques">
+			<h1>Nos Marques</h1>
+
+			<div class="navigation-marques">
+				<a ng-click="changeMarques($index)" ng-repeat="(key, val) in marques">{{key}}</a>
+			</div>
+
+			<div class="contenu-marques" >
+				<a ng-repeat="y in selectedType"><span>{{y.name}}</span></a>
+			</div>
 		</div>
-		<div class="coordonnees">
-			
+
+		<div class="zone-coordonnees">
+			<h1>Nos Coordonnées</h1>
 		</div>
 		
 	</div>

@@ -1,6 +1,6 @@
 {
 "types":[
-			,
+			"Artisans",
 			"Batteries de Cuisine",
 			"Couteaux",
 			"Outils",
@@ -9,8 +9,8 @@
 			"Petits électros",
 			"Magazines"
 			],
-"marques":[
-	"Artisans":[
+"marques":
+	{"Artisans":[
 		{
 			"name":"Toma Objets",
 			"url":"http://www.tomaobjects.com/"
@@ -53,128 +53,149 @@
 		}
 	],
 	
-	{
-		"name":"Cristel France",
-		"url":"http://www.cristel.com/"
-	},
-	{
-		"name":"Cuisinox",
-		"url":"http://www.cuisinox.com/"
-	},
-	{
-		"name":"Staub",
-		"url":"https://www.staub-online.com"
-	},
-	{
-		"name":"Emile Henry",
-		"url":"http://www.emilehenry.com/"
-	},
-	{
-		"name":"Lodge",
-		"url":"https://www.lodgemfg.com/"
-	},
-	{
-		"name":"De Buyer",
-		"url":"http://www.debuyer.com/"
-	},
-	{
-		"name":"Whustof",
-		"url":"http://www.wusthof.com"
-	},
-	{
-		"name":"Global",
-		"url":"http://global-knife.com"
-	},
-	{
-		"name":"Victorinox",
-		"url":"https://www.victorinox.com"
-	},
-	{
-		"name":"Opinel",
-		"url":"http://www.opinel.com/"
-	},
-	{
-		"name":"Microplane",
-		"url":"http://ca.microplane.com"
-	},
-	{
-		"name":"Epicurean",
-		"url":"http://www.epicureancs.com"
-	},
-	{
-		"name":"Ricardo",
-		"url":"http://boutique.ricardocuisine.com"
-	},
-	{
-		"name":"Cuisipro",
-		"url":"http://www.cuisipro.com/"
-	},
-	{
-		"name":"OXO Good Grips",
-		"url":"https://www.oxo.com/"
-	},
-	{
-		"name":"Zyliss",
-		"url":"https://www.zylissusa.com"
-	},
-	{
-		"name":"CDN",
-		"url":"http://www.cdnw.com/"
-	},
-	{
-		"name":"Pulltex",
-		"url":"http://www.pulltex.com/"
-	},
-	{
-		"name":"Peugeot",
-		"url":"http://www.peugeot-saveurs.com/"
-	},
-	{
-		"name":"Redecker",	"url":"http://www.redecker.de"
-	},
-	{
-		"name":"Escali",
-		"url":"http://www.escali.com/"
-	},
-	{
+	"Batteries de Cuisine":[
+		{
+			"name":"Cristel France",
+			"url":"http://www.cristel.com/"
+		},
+		{
+			"name":"Cuisinox",
+			"url":"http://www.cuisinox.com/"
+		},
+		{
+			"name":"Staub",
+			"url":"https://www.staub-online.com"
+		},
+		{
+			"name":"Emile Henry",
+			"url":"http://www.emilehenry.com/"
+		},
+		{
+			"name":"Lodge",
+			"url":"https://www.lodgemfg.com/"
+		},
+		{
+			"name":"De Buyer",
+			"url":"http://www.debuyer.com/"
+		}
+	],
+
+	"Couteaux":[
+		{
+			"name":"Whustof",
+			"url":"http://www.wusthof.com"
+		},
+		{
+			"name":"Global",
+			"url":"http://global-knife.com"
+		},
+		{
+			"name":"Victorinox",
+			"url":"https://www.victorinox.com"
+		},
+		{
+			"name":"Opinel",
+			"url":"http://www.opinel.com/"
+		},
+		{
+			"name":"Microplane",
+			"url":"http://ca.microplane.com"
+		}
+	],
+
+	"Outils":[
+		{
+			"name":"Epicurean",
+			"url":"http://www.epicureancs.com"
+		},
+		{
+			"name":"Ricardo",
+			"url":"http://boutique.ricardocuisine.com"
+		},
+		{
+			"name":"Cuisipro",
+			"url":"http://www.cuisipro.com/"
+		},
+		{
+			"name":"OXO Good Grips",
+			"url":"https://www.oxo.com/"
+		},
+		{
+			"name":"Zyliss",
+			"url":"https://www.zylissusa.com"
+		},
+		{
+			"name":"CDN",
+			"url":"http://www.cdnw.com/"
+		},
+		{
+			"name":"Pulltex",
+			"url":"http://www.pulltex.com/"
+		},
+		{
+			"name":"Peugeot",
+			"url":"http://www.peugeot-saveurs.com/"
+		},
+		{
+			"name":"Redecker",	"url":"http://www.redecker.de"
+		},
+		{
+			"name":"Escali",
+			"url":"http://www.escali.com/"
+		}
+	],
+
+	"Café":[
+		{
 		"name":"Kinto",
 		"url":"http://www.kinto.co.jp/"
-	},
-	{
-		"name":"Bialetti",
-		"url":"http://www.bialetti.com/"
-	},
-	{
-		"name":"Riedel",
-		"url":"http://www.riedel.com/"
-	},
-	{
-		"name":"Duralex",
-		"url":"http://www.duralex.com/"
-	},
-	{
-		"name":"Nespresso",
-		"url":"https://www.nespresso.com"
-	},
-	{
-		"name":"Cuisinart",
-		"url":"http://www.cuisinart.com/"
-	},
-	{
-		"name":"Dinette",
-		"url":"http://dinettemagazine.com/"
-	},
-	{
-		"name":"Caribou",
-		"url":"http://cariboumag.com/"
-	},
-	{
-		"name":"Bouffe",
-		"url":"http://bouffemedia.ca/"
-	},
-	{
-		"name":"Trois fois par jour",
-		"url":"http://www.troisfoisparjour.com/"
-	}]
+		},
+		{
+			"name":"Bialetti",
+			"url":"http://www.bialetti.com/"
+		}
+	],
+
+	"Verres":[
+		{
+			"name":"Riedel",
+			"url":"http://www.riedel.com/"
+		},
+		{
+			"name":"Duralex",
+			"url":"http://www.duralex.com/"
+		}
+	],
+
+	"Petits électros":[
+		{
+			"name":"Nespresso",
+			"url":"https://www.nespresso.com"
+		},
+		{
+			"name":"Cuisinart",
+			"url":"http://www.cuisinart.com/"
+		}
+	],
+	
+	"Magazines":[
+		{
+			"name":"Dinette",
+			"url":"http://dinettemagazine.com/"
+		},
+		{
+			"name":"Caribou",
+			"url":"http://cariboumag.com/"
+		},
+		{
+			"name":"Bouffe",
+			"url":"http://bouffemedia.ca/"
+		},
+		{
+			"name":"Trois fois par jour",
+			"url":"http://www.troisfoisparjour.com/"
+		}
+	]
+	}
 }
 

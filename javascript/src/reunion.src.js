@@ -11,14 +11,14 @@
 	var internal = {};
 	win.dld = internal;
 
-	var app = angular.module('projectTriage', ['ngSanitize','ngRoute']);
+	var app = angular.module('reunion', ['ngSanitize','ngRoute']);
 
 	app.directive('myCreateNav',function(){
 		return true;
 	});
 
 	app.controller('nosMarques', function($scope, $compile, $rootScope, $http, $route, $routeParams, $location, $filter) {
-		$scope.projects = null;
+		$scope.marques = null;
 		$scope.contents = null;
 		$scope.types = null;
 		$scope.selectedType = '';
@@ -75,11 +75,26 @@
 
 		}
 
+		$scope.changeMarques = function(val){
+			$scope.selectedType = $scope.setType(val);
+		}
+
+		$scope.setType = function(index){
+			$scope.cacheBuster = 0;
+			return $scope.marques[$scope.types[index]];
+		}
+
 		$scope.parseResponse = function(response){
-			$scope.types = response.types;
-			$scope.projects = response.projects;
-			$scope.contents = response.contents;
-			$scope.getPath();
+			$scope.marques = response.marques;
+			$scope.types = new Array();
+
+			for( k in $scope.marques){
+				$scope.types.push(k);
+			}
+
+			$scope.selectedType = $scope.setType(0);
+			
+			//$scope.getPath();
 		}
 
 		$scope.showNav = false;
@@ -122,44 +137,9 @@
 			$scope.project = obj;
 		}
 
-		$scope.contentSection = false;
-
-		$scope.setContentSection = function(val){
-			delete $scope.contentSectioninfo;
-			$scope.contentSection  = (typeof val == "undefined")?false:val;
-			return $scope.contentSection;
-		}
-
-		$scope.setType = function(type,index){
-			$scope.selectedType = type;
-			$scope.setContentSection();
-
-			switch(type){
-				case 'all':
-					$scope.selectedType = '';
-					break;
-
-				case 'about':
-					$scope.setContentSection(true);
-					$scope.contentSectioninfo = $scope.contents[index];
-					$scope.downloadContent($scope.contents[index]);
-					break;
-			}
-			$scope.cacheBuster = 0;
-			$scope.navSlider();
-
-			//change scroll position for new div without backgrounds.
-			window.scrollBy(0,2);
-		}
 
 		$scope.getFilter = function(){
-			if($scope.selectedType==="illustration"){
-				return {'type':($scope.selectedType)};
-			}
-			else{
-				return {"type": ($scope.selectedType || undefined || '!illustration' || '!about')};	
-			}
-
+			return {"type": ($scope.selectedType || undefined || '!illustration' || '!about')};	
 		}
 
 		$scope.$watch('scrollTop', function(newVal, oldVal){
@@ -321,7 +301,7 @@
 
 
        		var parts = $location.path().split("/");
-       		var scopeProjectProperties = (typeof scope.x != "undefined")?scope.x:$filter("filter")($scope.projects, {id:parts[2]})[0];
+       		var scopeProjectProperties = (typeof scope.x != "undefined")?scope.x:$filter("filter")($scope.marques, {id:parts[2]})[0];
 
        		scopeParent.showDescription = !scopeParent.showDescription;
 

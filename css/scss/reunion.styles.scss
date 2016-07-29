@@ -6,6 +6,8 @@ $rose: rgba(244,155,126,1);  /* HEX f49b7e */
 $taupe: rgba(167,163,146,1); /* HEX a7a392 */
 $gris: rgba(60,60,59,1);
 
+$fontFamily1: 'Roboto', sans-serif;
+
 @mixin bdr($w: 1px, $color: red){
 	border: $w solid $color;
 }
@@ -28,13 +30,31 @@ $gris: rgba(60,60,59,1);
 	}
 }
 
+@mixin setFont(
+		$fontSize: 12px, 
+		$color: white, 
+		$family: $fontFamily1, 
+		$transform: none, 
+		$lineHeight: auto, 
+		$align: left, 
+		$fontWeight: 300, 
+		$fontStyle: normal
+	){
+	font-size: $fontSize;
+	line-height: $lineHeight;
+	font-family: $family;
+	font-weight: $fontWeight;
+	font-style: $fontStyle;
+	text-align: $align;
+	text-transform: $transform;
+	color: $color;
+}
+
+
 *{
 	box-sizing: border-box;
-	font-family: 'Roboto', sans-serif;
-	font-weight: 300;
-	color: white;
+	@include setFont();
 	text-align: center;
-  	font-size: 12px;
   	letter-spacing: 0.07em;
 
   	text-size-adjust: none;
@@ -43,7 +63,7 @@ $gris: rgba(60,60,59,1);
 	-webkit-font-smoothing: antialiased;
 
   	@include media(max-width 320px){
-  		font-size: 16px;
+  		@include setFont(16px);
   	}
 }
 
@@ -317,6 +337,79 @@ $breakpoint_large: min-width 1200px;
 				}
 			}
 		}
+	}
+	.zone-marques,.zone-coordonnees{
+		padding-bottom: 20px;
+		background-color: rgba(0,0,0,.5);
+
+		h1{
+
+			@include setFont(22px,null,null,uppercase,null,left,400);
+	  		letter-spacing: .27em;
+	  		padding: 20px 0px 6px 50px;
+	  		margin:0px;
+	  		background-color: $gris;
+	  		border-bottom: 2px solid $rose;
+		}
+
+		/*
+		$fontSize: 12px, 
+		$color: white, 
+		$family: $fontFamily1, 
+		$transform: none, 
+		$lineHeight: auto, 
+		$align: left, 
+		$fontWeight: 300, 
+		$fontStyle: normal
+		*/
+
+		.navigation-marques{
+			margin: 20px 0px 20px 0px;
+			
+			a{
+				@include setFont(12px,$taupe,null,uppercase,null,center,400);
+				padding: 4px 10px 4px 10px;
+				display: inline-block;
+			}
+		}
+
+		.contenu-marques{
+
+			min-height: 280px;
+
+			a{
+				position: relative;
+				$width: 118px;
+				display: inline-block;
+				padding: 10px;
+				width: $width;
+				height: $width;
+				margin: 6px 10px 6px 10px;
+				@include border-top-radius($width/2);
+				@include border-bottom-radius($width/2);
+				background-color: rgba(167,163,146,.2);;
+
+				span{
+					position: absolute;
+					width: 80%;
+					top: 35%;
+					text-align: center;
+					display: block;
+				}
+			} 
+		}
+	}
+
+	.zone-marques{
+		background-image: url("/images/full/marques_background.jpg");
+		background-size: cover;
+	}
+
+	.zone-coordonnees{
+		min-height: 380px;
+		background-image: url("/images/full/map_background.jpg");
+		background-size: auto 100%;
+		background-position: right top;
 	}
 
 }
