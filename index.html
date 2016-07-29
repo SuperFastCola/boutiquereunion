@@ -13,11 +13,11 @@
 -->
 </head>
 
-<body class="clip_car">	
+<body class="clip_car" ng-app="reunion" ng-controller="nosMarques" >	
 
 	<div id="loader" class="left"><h1 id="loading_message">Loading</h1><span></span><div id="illo"></div></div>	
 
-	<div class="container" id="container" autoresize="">
+	<div class="container" id="container" autoresize="" >
 		<div class="header">
 			<img class="logo" src="images/full/logo.svg" alt="Reunion"/>
 
@@ -46,12 +46,12 @@
 					<path class="symbol" d="M 33 10 L 16 25.25 L 33 40" />
 				</svg>
 			</a>
-			<div class="slide photo1">
 
+			<div class="slide" ng-init="imageLoading = true; imageLoaded = false;" ng-class="x.classname" ng-style="{left: hiddenPhoto($index),backgroundImage: backgroundStyle}" ng-repeat="x in photos" load-initial-image>
 			</div>
 		</div>
 
-		<div ng-app="reunion" class="zone-marques" ng-controller="nosMarques">
+		<div class="zone-marques" >
 			<h1>Nos Marques</h1>
 
 			<div class="navigation-marques">
@@ -65,6 +65,12 @@
 
 		<div class="zone-coordonnees">
 			<h1>Nos Coordonnées</h1>
+			<div class="address">
+				<span>4750 Wellington</span>
+				<span>Verdun QC H4G 1X3</span>
+				<span>514-819-2294</span>
+				<a href="mailto:info@boutiquereunion.com">info@boutiquereunion.com</a>
+			</div>
 		</div>
 		
 	</div>

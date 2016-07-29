@@ -1,14 +1,19 @@
 {
-"types":[
-			"Artisans",
-			"Batteries de Cuisine",
-			"Couteaux",
-			"Outils",
-			"Café",
-			"Verres",
-			"Petits électros",
-			"Magazines"
-			],
+"photos":[
+	{
+		"filename":"photo_vedette_1.jpg",
+		"initial": true,
+		"classname": "photo1",
+		"description": "Vitrine de magasin",
+		"blurb":null
+	},
+	{
+		"filename":"reunion-7659.jpg",
+		"description": "Intérieur de magasin",
+		"classname": "photo2",
+		"blurb":null
+	}
+],
 "marques":
 	{"Artisans":[
 		{
