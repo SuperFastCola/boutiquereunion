@@ -244,6 +244,8 @@ $breakpoint_large: min-width 1200px;
 		position: relative;
 		overflow: hidden;
 
+		background-color: rgba(0,0,0,.4);
+
 
 			@include media($breakpoint_small){
 				height: 200px;
@@ -323,15 +325,15 @@ $breakpoint_large: min-width 1200px;
 			height: 100%;
 			background-size: 100% auto;
 			background-repeat: no-repeat;
+			@include transition(all,.25s);
 
 			&.hidden{
 				left: 100%;
 			}
 		}
 
-		.photo1{
+		.photo1,.photo2{
 			background-position: center 65%;
-			@include bdr;
 
 			@include media($breakpoint_small){
 				background-size: 140% auto;
@@ -373,12 +375,15 @@ $breakpoint_large: min-width 1200px;
 
 		.contenu-marques{
 
-			min-height: 280px;
+			@include transition(all,.5s);
 
 			a{
 				position: relative;
 				$width: 118px;
 				display: inline-block;
+				background-size: 70% auto;
+				background-position: center center;
+				background-repeat: no-repeat;
 				padding: 10px;
 				width: $width;
 				height: $width;
@@ -393,6 +398,10 @@ $breakpoint_large: min-width 1200px;
 					top: 35%;
 					text-align: center;
 					display: block;
+
+					&.hidden{
+						display: none;
+					}
 				}
 			} 
 		}

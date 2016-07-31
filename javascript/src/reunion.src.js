@@ -48,8 +48,25 @@
 			}
 			else{
 				return { 'backgroundImage':'url(' + String(images_sub_directory + obj.source) + ')' };
+			}	
+		}
+
+		$scope.marquesLogos = function(file){
+			if(typeof file != 'undefined'){
+				return 'url(' + String(file) + ')';
 			}
-			
+			else{
+				return undefined;
+			}
+		}
+
+		$scope.marqueHasLogo = function(file){
+			if(typeof file != 'undefined'){
+				return true;
+			}
+			else{
+				return false;
+			}
 		}
 
 		$scope.changeMarques = function(val){
@@ -76,6 +93,38 @@
 		$scope.loadSlideShow = function(scope){
 			for(var i in $scope.photos){
 
+			}
+		}
+
+		$scope.handleSlideCounter = function(slide,increase){
+
+			var amt = slide;
+			var photoArraySize = $scope.photos.length;
+
+			if(increase){
+				amt++;
+			}else{
+				amt--;
+			}
+
+			if(amt>photoArraySize-1){
+				amt=0;
+			}
+
+			if(amt<0){
+				amt = photoArraySize - 1;
+			}
+
+			return amt;
+
+		}
+
+		$scope.changeSlide = function(forward){
+			if(forward){
+				$scope.currentSlide = $scope.handleSlideCounter($scope.currentSlide,true);
+			}
+			else{
+				$scope.currentSlide = $scope.handleSlideCounter($scope.currentSlide,false);
 			}
 		}
 
@@ -107,6 +156,7 @@
 		$http.get("/projects.json").success($scope.parseResponse);
 
 		$scope.hiddenPhoto = function(index){
+
 			if(index!=$scope.currentSlide){
 				return "100%";
 			}
@@ -175,8 +225,10 @@
 	        link : function(scope, element, attrs) {
 	        	if(typeof scope.x.initial != "undefined"){
 	        		scope.$parent.currentSlide = scope.$index;
-	        		scope.$parent.loadBackground(scope);
 	        	}
+
+	        	scope.$parent.loadBackground(scope);
+	        	
 	       	}
 	   	};
 	}); 
