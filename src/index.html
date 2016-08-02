@@ -59,7 +59,7 @@
 			</div>
 
 			<div class="contenu-marques" >
-				<a ng-repeat="y in selectedType" ng-style="{backgroundImage: marquesLogos(y.logo)}"><span ng-class="{hidden:marqueHasLogo(y.logo)}">{{y.name}}</span></a>
+				<a ng-repeat="y in selectedType" ng-style="{backgroundImage: marquesLogos(y.logo)}" ng-class="marqueHasClass(y)"><span ng-class="{hidden:marqueHasLogo(y.logo)}">{{y.name}}</span></a>
 			</div>
 		</div>
 

@@ -392,6 +392,10 @@ $breakpoint_large: min-width 1200px;
 				@include border-bottom-radius($width/2);
 				background-color: rgba(167,163,146,.2);;
 
+				&.reduced_60{
+					background-size: 60% auto;
+				}
+
 				span{
 					position: absolute;
 					width: 80%;

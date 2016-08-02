@@ -345,20 +345,23 @@ html, body {
         border-bottom-right-radius: 59px;
         background-color: rgba(167, 163, 146, 0.2); }
         /* line 395, scss/reunion.styles.scss */
+        .container .zone-marques .contenu-marques a.reduced_60, .container .zone-coordonnees .contenu-marques a.reduced_60 {
+          background-size: 60% auto; }
+        /* line 399, scss/reunion.styles.scss */
         .container .zone-marques .contenu-marques a span, .container .zone-coordonnees .contenu-marques a span {
           position: absolute;
           width: 80%;
           top: 35%;
           text-align: center;
           display: block; }
-          /* line 402, scss/reunion.styles.scss */
+          /* line 406, scss/reunion.styles.scss */
           .container .zone-marques .contenu-marques a span.hidden, .container .zone-coordonnees .contenu-marques a span.hidden {
             display: none; }
-  /* line 410, scss/reunion.styles.scss */
+  /* line 414, scss/reunion.styles.scss */
   .container .zone-marques {
     background-image: url("/images/full/marques_background.jpg");
     background-size: cover; }
-  /* line 415, scss/reunion.styles.scss */
+  /* line 419, scss/reunion.styles.scss */
   .container .zone-coordonnees {
     position: relative;
     min-height: 380px;
@@ -375,12 +378,12 @@ html, body {
     $fontWeight: 300, 
     $fontStyle: normal
     */ }
-    /* line 433, scss/reunion.styles.scss */
+    /* line 437, scss/reunion.styles.scss */
     .container .zone-coordonnees .address {
       position: absolute;
       right: 0px;
       padding: 70px 120px 0px 0px; }
-      /* line 438, scss/reunion.styles.scss */
+      /* line 442, scss/reunion.styles.scss */
       .container .zone-coordonnees .address span, .container .zone-coordonnees .address a {
         font-size: 14px;
         font-weight: 400;
@@ -388,7 +391,7 @@ html, body {
         text-transform: uppercase;
         text-align: left;
         display: block; }
-      /* line 447, scss/reunion.styles.scss */
+      /* line 451, scss/reunion.styles.scss */
       .container .zone-coordonnees .address a {
         text-decoration: none;
         opacity: 1;

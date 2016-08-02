@@ -60,6 +60,19 @@
 			}
 		}
 
+		$scope.marqueHasClass = function(obj){
+			var styles = new Object();
+
+			if(typeof obj.class != 'undefined'){
+				styles[obj.class] = true;
+			}
+			else{
+				styles = false;
+			}
+
+			return styles;
+		}
+
 		$scope.marqueHasLogo = function(file){
 			if(typeof file != 'undefined'){
 				return true;
