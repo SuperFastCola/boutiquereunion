@@ -107,7 +107,7 @@ $breakpoint_large: min-width 1200px;
 			border-top: $bdrtop solid $rose;
 			border-bottom: $bdrbot solid $rose;
 
-			background-color: $black;
+			background-color: $gris;
 		}
 
 		.logo{
@@ -272,7 +272,6 @@ $breakpoint_large: min-width 1200px;
 			@include buttonBehavior;
 
 			@include media($breakpoint_small){
-				background-color: black;
 				@include transform(scale(0.8));
 
 				&:hover{
@@ -378,7 +377,7 @@ $breakpoint_large: min-width 1200px;
 	  		@include media($breakpoint_small){
 	  			@include setFont(18px,null,null,uppercase,null,center,400);
 	  			padding: 30px 10px 6px 10px;
-	  			background-color: $black;
+	  			background-color: $gris;
 	  			border-bottom: 1px solid $rose;
 	  			border-top: 1px solid black;
 	  		}
@@ -473,7 +472,7 @@ $breakpoint_large: min-width 1200px;
 		background-position: center top;
 		
 		@include media($breakpoint_small){
-			background-image: url("/images/mobile/marques_background.jpg");
+			background-image: none;
 		}
 	}
 
@@ -485,7 +484,8 @@ $breakpoint_large: min-width 1200px;
 		background-position: right bottom;
 
 		@include media($breakpoint_small){
-			background-image: url("/images/mobile/map_background.jpg");
+			background-image: none;
+			min-height: 250px;
 			background-position: 107% bottom;
 		}
 
