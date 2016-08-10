@@ -20,6 +20,7 @@
 		$scope.types = null;
 		$scope.currentSlide = null;
 		$scope.selectedType = '';
+		$scope.scrollTop = 0;
 
 		$scope.currentDate = new Date();
 		$scope.cacheBuster = 0;
@@ -84,6 +85,17 @@
 
 		$scope.changeMarques = function(val){
 			$scope.selectedType = $scope.setType(val);
+			$scope.selectedTypeIndex = val;
+		}
+
+		$scope.navItemClicked = function(val){
+
+			if($scope.selectedTypeIndex == val){
+				return true;
+			}
+			else{
+				return false;
+			}
 		}
 
 		$scope.setType = function(index){
@@ -101,6 +113,7 @@
 			}
 
 			$scope.selectedType = $scope.setType(0);
+			$scope.selectedTypeIndex = 0;
 		}
 
 		$scope.loadSlideShow = function(scope){
@@ -183,7 +196,12 @@
 			if(scope.imageLoading){
 				scope.imageLoading = false;
 
-				scope.backgroundImage = scope.setBackgroundThumbnailImage({source:scope.x.filename,detail:true,returnURL:true});
+				var filename = (typeof scope.x !="undefined")?scope.x.filename:scope.filename;
+
+				console.log(scope);
+
+				scope.backgroundImage = scope.setBackgroundThumbnailImage({source:filename,detail:true,returnURL:true});
+
 
 				$http({
 					method: 'GET',
@@ -245,5 +263,59 @@
 	       	}
 	   	};
 	}); 
+
+		//http://nahidulkibria.blogspot.com/2014/10/angullarjs-directive-to-watch-window.html
+	app.directive('scrollposition', function($window) {  
+		//passes scope to anonymous function
+
+	  	return function($scope) {  
+
+	  		$scope.scrollTop = $window.pageYOffset;
+	   		$scope.viewBottom = $window.pageYOffset + $window.innerHeight; 
+
+	   		return angular.element($window).bind('scroll', function() {  
+	   			$scope.scrollTop = $window.pageYOffset;
+	   			$scope.viewBottom = $window.pageYOffset + $window.innerHeight; 
+	    		return $scope.$apply();  
+	   		});  
+	  	};  
+
+ 	}); 
+
+	app.directive('checkObjectPosition',function($window,$http){
+
+	      return {
+	        link : function(scope, element, attrs) {
+
+	        	if(element[0].getBoundingClientRect().top<($window.pageYOffset + $window.innerHeight)){
+	        		console.log(scope.filename);
+	        		scope.loadBackground(scope);
+	        	}
+
+	        	scope.$on('windowResize', function(event, args){
+
+	        		var testStyle = null;
+
+	        		if(typeof scope.backgroundStyle != "undefined" && typeof scope.backgroundStyle.backgroundImage != "undefined"){
+	        			var testStyle = String(scope.backgroundStyle.backgroundImage).match(scope.$parent.mobile);
+	        		}
+
+	        		if(testStyle==null){
+	        			scope.backgroundStyle = scope.setBackgroundThumbnailImage({source:scope.filename});	
+	        		}
+
+	        	});
+
+	        	scope.$on('scrollTop', function(event, args){
+	        		if(element[0].getBoundingClientRect().top<window.innerHeight && typeof scope.backgroundStyle=="undefined"){
+	        			scope.loadBackground(scope);
+	        		}
+	        		
+				});
+
+	       	}
+	   	};
+	}); 
+
 
 })(window);

@@ -5,6 +5,7 @@
 $rose: rgba(244,155,126,1);  /* HEX f49b7e */
 $taupe: rgba(167,163,146,1); /* HEX a7a392 */
 $gris: rgba(60,60,59,1);
+$black: rgba(0,0,0,.4);
 
 $fontFamily1: 'Roboto', sans-serif;
 
@@ -96,14 +97,17 @@ $breakpoint_large: min-width 1200px;
 		border-top: $bdrtop solid $rose;
 		border-bottom: $bdrbot solid $rose;
 
+
 		@include media($breakpoint_small){
 			$height: 90px;
-			$bdrtop: 8px;
-			$bdrbot: 2px;
+			$bdrtop: 6px;
+			$bdrbot: 1px;
 
 			height: $height - ( $bdrtop - $bdrbot );
 			border-top: $bdrtop solid $rose;
 			border-bottom: $bdrbot solid $rose;
+
+			background-color: $black;
 		}
 
 		.logo{
@@ -244,7 +248,7 @@ $breakpoint_large: min-width 1200px;
 		position: relative;
 		overflow: hidden;
 
-		background-color: rgba(0,0,0,.4);
+		background-color: $black;
 
 
 			@include media($breakpoint_small){
@@ -268,7 +272,12 @@ $breakpoint_large: min-width 1200px;
 			@include buttonBehavior;
 
 			@include media($breakpoint_small){
+				background-color: black;
 				@include transform(scale(0.8));
+
+				&:hover{
+					@include opacity(1);
+				}
 			}
 
 			&.right{
@@ -353,6 +362,10 @@ $breakpoint_large: min-width 1200px;
 		padding-bottom: 20px;
 		background-color: rgba(0,0,0,.5);
 
+		@include media($breakpoint_small){
+			padding-bottom: 30px;
+		}
+
 		h1{
 
 			@include setFont(22px,null,null,uppercase,null,left,400);
@@ -361,21 +374,49 @@ $breakpoint_large: min-width 1200px;
 	  		margin:0px;
 	  		background-color: $gris;
 	  		border-bottom: 2px solid $rose;
+
+	  		@include media($breakpoint_small){
+	  			@include setFont(18px,null,null,uppercase,null,center,400);
+	  			padding: 20px 10px 6px 10px;
+	  			background-color: $black;
+	  			border-bottom: 1px solid $rose;
+	  			border-top: 1px solid black;
+	  		}
 		}
 
 		.navigation-marques{
 			margin: 20px 0px 20px 0px;
+
+			@include media($breakpoint_small){
+				margin: 10px 0px 10px 0px;
+				text-align: center;
+			}
 			
 			a{
 				@include setFont(12px,$taupe,null,uppercase,null,center,400);
 				padding: 4px 10px 4px 10px;
 				display: inline-block;
+
+				&.selected{
+					color: white;
+					font-weight: 700;
+				}
+
+				@include media($breakpoint_small){
+					@include setFont(14px,$taupe,null,uppercase,null,center,400);
+					padding: 2px 10px 6px 10px;
+				}
 			}
 		}
 
 		.contenu-marques{
 
 			@include transition(all,.5s);
+
+			@include media($breakpoint_small){
+				padding-left: 0px;
+				text-align: center;
+			}
 
 			a{
 				position: relative;
@@ -392,6 +433,17 @@ $breakpoint_large: min-width 1200px;
 				@include border-bottom-radius($width/2);
 				background-color: rgba(167,163,146,.2);;
 
+				@include media($breakpoint_small){
+					$width: 86px;
+					display: inline-block;
+					padding: 6px;
+					width: $width;
+					height: $width;
+					margin: 6px 4px 6px 4px;
+					@include border-top-radius($width/2);
+					@include border-bottom-radius($width/2);
+				}
+
 				&.reduced_60{
 					background-size: 60% auto;
 				}
@@ -403,6 +455,10 @@ $breakpoint_large: min-width 1200px;
 					text-align: center;
 					display: block;
 
+					@include media($breakpoint_small){
+						font-size: 10px;
+					}
+
 					&.hidden{
 						display: none;
 					}
@@ -413,7 +469,12 @@ $breakpoint_large: min-width 1200px;
 
 	.zone-marques{
 		background-image: url("/images/full/marques_background.jpg");
-		background-size: cover;
+		background-size: auto 100%;
+		background-position: center top;
+		
+		@include media($breakpoint_small){
+			background-image: url("/images/mobile/marques_background.jpg");
+		}
 	}
 
 	.zone-coordonnees{
@@ -423,29 +484,31 @@ $breakpoint_large: min-width 1200px;
 		background-size: auto 100%;
 		background-position: right bottom;
 
-		/*
-		$fontSize: 12px, 
-		$color: white, 
-		$family: $fontFamily1, 
-		$transform: none, 
-		$lineHeight: auto, 
-		$align: left, 
-		$fontWeight: 300, 
-		$fontStyle: normal
-		*/
+		@include media($breakpoint_small){
+			background-image: url("/images/mobile/map_background.jpg");
+			background-position: 107% bottom;
+		}
 
 		.address{
 			position: absolute;
 			right: 0px;
 			padding: 70px 120px 0px 0px;
 
+			@include media($breakpoint_small){
+				position: relative;
+				padding: 40px 0px 0px 0px;
+			}
+
 			span,a{
-				font-size: 14px;
-				font-weight: 400;
+
+				@include setFont(14px,null,null,uppercase,null,left,400);
 				letter-spacing: .1em;
-				text-transform: uppercase;
-				text-align: left;
 				display: block;
+
+				@include media($breakpoint_small){
+					text-align: center;
+				}
+				
 			}
 
 			a{

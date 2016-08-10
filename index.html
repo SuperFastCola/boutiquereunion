@@ -13,7 +13,7 @@
 -->
 </head>
 
-<body class="clip_car" ng-app="reunion" ng-controller="nosMarques" >	
+<body class="clip_car" ng-app="reunion" ng-controller="nosMarques" scrollposition="">	
 
 	<div id="loader" class="left"><h1 id="loading_message">Loading</h1><span></span><div id="illo"></div></div>	
 
@@ -51,11 +51,11 @@
 			</div>
 		</div>
 
-		<div class="zone-marques" >
+		<div class="zone-marques">
 			<h1>Nos Marques</h1>
 
 			<div class="navigation-marques">
-				<a ng-click="changeMarques($index)" ng-repeat="(key, val) in marques">{{key}}</a>
+				<a ng-click="changeMarques($index)" ng-class="{selected: navItemClicked($index)}" ng-repeat="(key, val) in marques">{{key}}</a>
 			</div>
 
 			<div class="contenu-marques" >
@@ -65,6 +65,9 @@
 
 		<div class="zone-coordonnees">
 			<h1>Nos Coordonnées</h1>
+
+			<div class="photo_coordonnees_1"></div>
+
 			<div class="address">
 				<span>4750 Wellington</span>
 				<span>Verdun QC H4G 1X3</span>
