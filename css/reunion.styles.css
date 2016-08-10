@@ -308,7 +308,7 @@ html, body {
     @media screen and (max-width: 600px) {
       /* line 361, scss/reunion.styles.scss */
       .container .zone-marques, .container .zone-coordonnees {
-        padding-bottom: 30px; } }
+        padding-bottom: 10px; } }
     /* line 369, scss/reunion.styles.scss */
     .container .zone-marques h1, .container .zone-coordonnees h1 {
       font-size: 22px;
@@ -329,7 +329,7 @@ html, body {
           font-style: normal;
           text-align: center;
           text-transform: uppercase;
-          padding: 20px 10px 6px 10px;
+          padding: 30px 10px 6px 10px;
           background-color: rgba(0, 0, 0, 0.4);
           border-bottom: 1px solid #f49b7e;
           border-top: 1px solid black; } }

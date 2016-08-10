@@ -363,7 +363,7 @@ $breakpoint_large: min-width 1200px;
 		background-color: rgba(0,0,0,.5);
 
 		@include media($breakpoint_small){
-			padding-bottom: 30px;
+			padding-bottom: 10px;
 		}
 
 		h1{
@@ -377,7 +377,7 @@ $breakpoint_large: min-width 1200px;
 
 	  		@include media($breakpoint_small){
 	  			@include setFont(18px,null,null,uppercase,null,center,400);
-	  			padding: 20px 10px 6px 10px;
+	  			padding: 30px 10px 6px 10px;
 	  			background-color: $black;
 	  			border-bottom: 1px solid $rose;
 	  			border-top: 1px solid black;
