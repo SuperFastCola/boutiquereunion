@@ -14,6 +14,18 @@
 		"blurb":null
 	}
 ],
+"coordonnees":[
+	{
+		"filename":"photo_vitrine.jpg",
+		"classname": "vitrine1",
+		"description": "Vitrine de magasin"
+	},
+	{
+		"filename":"reunion-7542.jpg",
+		"classname": "reunion7542",
+		"description": "Intérieur de magasin"
+	}
+],
 "marques":
 	{"Artisans":[
 		{

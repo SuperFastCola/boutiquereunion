@@ -17,6 +17,7 @@
 	app.controller('nosMarques', function($scope, $compile, $rootScope, $http, $route, $routeParams, $location, $filter) {
 		$scope.marques = null;
 		$scope.photos = null;
+		$scope.coordonnees = null;
 		$scope.types = null;
 		$scope.currentSlide = null;
 		$scope.selectedType = '';
@@ -106,6 +107,7 @@
 		$scope.parseResponse = function(response){
 			$scope.marques = response.marques;
 			$scope.photos = response.photos;
+			$scope.coordonnees = response.coordonnees;
 			$scope.types = new Array();
 
 			for( k in $scope.marques){
@@ -197,9 +199,6 @@
 				scope.imageLoading = false;
 
 				var filename = (typeof scope.x !="undefined")?scope.x.filename:scope.filename;
-
-				console.log(scope);
-
 				scope.backgroundImage = scope.setBackgroundThumbnailImage({source:filename,detail:true,returnURL:true});
 
 
@@ -288,7 +287,6 @@
 	        link : function(scope, element, attrs) {
 
 	        	if(element[0].getBoundingClientRect().top<($window.pageYOffset + $window.innerHeight)){
-	        		console.log(scope.filename);
 	        		scope.loadBackground(scope);
 	        	}
 
@@ -296,12 +294,12 @@
 
 	        		var testStyle = null;
 
-	        		if(typeof scope.backgroundStyle != "undefined" && typeof scope.backgroundStyle.backgroundImage != "undefined"){
+	        		if(typeof scope.backgroundStyle != "undefined"){
 	        			var testStyle = String(scope.backgroundStyle.backgroundImage).match(scope.$parent.mobile);
 	        		}
 
 	        		if(testStyle==null){
-	        			scope.backgroundStyle = scope.setBackgroundThumbnailImage({source:scope.filename});	
+	        			//scope.backgroundStyle = scope.setBackgroundThumbnailImage({source:scope.filename});	
 	        		}
 
 	        	});

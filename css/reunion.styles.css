@@ -323,12 +323,12 @@ html, body {
       @media screen and (max-width: 600px) {
         /* line 368, scss/reunion.styles.scss */
         .container .zone-marques h1, .container .zone-coordonnees h1 {
-          font-size: 18px;
+          font-size: 20px;
           font-weight: 400;
           font-style: normal;
           text-align: center;
           text-transform: uppercase;
-          padding: 30px 10px 6px 10px;
+          padding: 30px 10px 14px 10px;
           background-color: #3c3c3b;
           border-bottom: 1px solid #f49b7e;
           border-top: 1px solid black; } }
@@ -434,24 +434,65 @@ html, body {
     min-height: 380px;
     background-image: url("/images/full/map_background.jpg");
     background-size: auto 100%;
-    background-position: right bottom; }
+    background-position: right bottom;
+    text-align: left; }
     @media screen and (max-width: 600px) {
       /* line 479, scss/reunion.styles.scss */
       .container .zone-coordonnees {
-        background-image: none;
-        min-height: 250px;
-        background-position: 107% bottom; } }
-    /* line 492, scss/reunion.styles.scss */
+        background-position: 100% bottom; } }
+    /* line 495, scss/reunion.styles.scss */
+    .container .zone-coordonnees div:nth-child(2) {
+      margin-left: 40px;
+      margin-right: 30px; }
+      @media screen and (max-width: 725px) {
+        /* line 495, scss/reunion.styles.scss */
+        .container .zone-coordonnees div:nth-child(2) {
+          width: 35%;
+          height: auto;
+          padding-bottom: 30%;
+          margin-right: 0px; } }
+      @media screen and (max-width: 350px) {
+        /* line 495, scss/reunion.styles.scss */
+        .container .zone-coordonnees div:nth-child(2) {
+          width: 35%; } }
+      @media screen and (max-width: 400px) {
+        /* line 495, scss/reunion.styles.scss */
+        .container .zone-coordonnees div:nth-child(2) {
+          display: block;
+          width: 85%;
+          height: auto;
+          padding-bottom: 70%;
+          margin: 136px auto 30px auto; } }
+    @media screen and (max-width: 1024px) {
+      /* line 519, scss/reunion.styles.scss */
+      .container .zone-coordonnees div:nth-child(3) {
+        display: none; } }
+    /* line 527, scss/reunion.styles.scss */
+    .container .zone-coordonnees .photo_coordonnees {
+      display: inline-block;
+      border: 1px solid #a7a392;
+      width: 292px;
+      height: 241px;
+      margin: 36px 00px 0px 0px;
+      background-size: cover;
+      background-position: center center; }
+    /* line 537, scss/reunion.styles.scss */
     .container .zone-coordonnees .address {
-      position: absolute;
-      right: 0px;
-      padding: 70px 120px 0px 0px; }
-      @media screen and (max-width: 600px) {
-        /* line 492, scss/reunion.styles.scss */
+      padding: 70px 120px 0px 0px;
+      float: right; }
+      @media screen and (max-width: 670px) {
+        /* line 537, scss/reunion.styles.scss */
         .container .zone-coordonnees .address {
-          position: relative;
-          padding: 40px 0px 0px 0px; } }
-      /* line 502, scss/reunion.styles.scss */
+          width: 50%;
+          padding: 70px 0px 0px 0px; } }
+      @media screen and (max-width: 400px) {
+        /* line 537, scss/reunion.styles.scss */
+        .container .zone-coordonnees .address {
+          position: absolute;
+          width: 100%;
+          top: 30px;
+          float: none; } }
+      /* line 553, scss/reunion.styles.scss */
       .container .zone-coordonnees .address span, .container .zone-coordonnees .address a {
         font-size: 14px;
         font-weight: 400;
@@ -460,11 +501,16 @@ html, body {
         text-transform: uppercase;
         letter-spacing: .1em;
         display: block; }
-        @media screen and (max-width: 600px) {
-          /* line 502, scss/reunion.styles.scss */
+        @media screen and (max-width: 500px) {
+          /* line 553, scss/reunion.styles.scss */
           .container .zone-coordonnees .address span, .container .zone-coordonnees .address a {
-            text-align: center; } }
-      /* line 514, scss/reunion.styles.scss */
+            font-size: 12px; } }
+        @media screen and (max-width: 400px) {
+          /* line 553, scss/reunion.styles.scss */
+          .container .zone-coordonnees .address span, .container .zone-coordonnees .address a {
+            text-align: center;
+            font-size: 14px; } }
+      /* line 569, scss/reunion.styles.scss */
       .container .zone-coordonnees .address a {
         text-decoration: none;
         opacity: 1;
