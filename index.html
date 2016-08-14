@@ -102,8 +102,6 @@
 
 
 	var elementsToShow = new Array();
-	elementsToShow.push("zone-coordonnees");
-	elementsToShow.push("zone-marques");
 
 	var loadingMessages = new Object();
 	loadingMessages.initial = "Loading";
@@ -263,16 +261,16 @@
 
 				if(elementsToShow.length > 0 ){
 					for(var i in elementsToShow){
-						var cssele = document.getElementById(elementsToShow[i]);
+						var cssele = document.querySelector(elementsToShow[i]);
 
 						if(typeof cssele != "undefined" && cssele != null){
 							cssele.style.display="block";	
 						}
 					}	
 				}
-				else{
-					throw "No elements to show";
-				}
+				// else{
+				// 	throw "No elements to show";
+				// }
 				
 			},500);
 		}

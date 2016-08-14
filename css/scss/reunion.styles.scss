@@ -491,7 +491,6 @@ $breakpoint_large: min-width 1200px;
 	}
 
 	.zone-marques{
-		display: none;
 		background-image: url("/images/full/marques_background.jpg");
 		background-size: cover;
 		background-repeat: no-repeat;
@@ -503,7 +502,6 @@ $breakpoint_large: min-width 1200px;
 	}
 
 	.zone-coordonnees{
-		display: none;
 		position: relative;
 		min-height: 380px;
 		background-image: url("/images/full/map_background.jpg");
