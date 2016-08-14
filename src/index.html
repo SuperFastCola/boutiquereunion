@@ -7,15 +7,14 @@
 	<meta id="view_port" name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<link rel="stylesheet" type="text/css" href="css/reunion.styles.css">
-<!--	<style type="text/css">
+	<style type="text/css">
 	@@includecss
 	</style>
--->
+
 </head>
 
 <body class="clip_car" ng-app="reunion" ng-controller="nosMarques" scrollposition="">	
 
-	<div id="loader" class="left"><h1 id="loading_message">Loading</h1><span></span><div id="illo"></div></div>	
 
 	<div class="container" id="container" autoresize="" >
 		<div class="header">
@@ -38,12 +37,12 @@
 		<div class="slideshow">
 			<a class="slide_butn right" ng-click="changeSlide(true)">
 				<svg class="icon arrow">
-					<path class="symbol" d="M 19 10 L 35 25.25 L 19 40" />
+					<path class="symbol" d="M 19 10 L 35 25.25 L 19 40" ></path>
 				</svg>
 			</a>
 			<a class="slide_butn left" ng-click="changeSlide(false)">
 				<svg class="icon arrow">
-					<path class="symbol" d="M 33 10 L 16 25.25 L 33 40" />
+					<path class="symbol" d="M 33 10 L 16 25.25 L 33 40" ></path>
 				</svg>
 			</a>
 
@@ -51,23 +50,22 @@
 			</div>
 		</div>
 
-		<div class="zone-marques">
+		<div class="zone-marques" id="zone-marques">
 			<h1>Nos Marques</h1>
 
 			<div class="navigation-marques">
 				<a ng-click="changeMarques($index)" ng-class="{selected: navItemClicked($index)}" ng-repeat="(key, val) in marques">{{key}}</a>
 			</div>
 
-			<div class="contenu-marques" >
+			<div class="contenu-marques" ng-style="{height:navHeightStyle}">
+				<div class="contenu-holder">
 				<a ng-repeat="y in selectedType" ng-style="{backgroundImage: marquesLogos(y.logo)}" ng-class="marqueHasClass(y)"><span ng-class="{hidden:marqueHasLogo(y.logo)}">{{y.name}}</span></a>
+				</div>
 			</div>
 		</div>
 
-		<div class="zone-coordonnees">
+		<div class="zone-coordonnees" id="zone-coordonnees">
 			<h1>Nos Coordonnées</h1>
-
-			<div class="photo_coordonnees" ng-init="imageLoading = true; imageLoaded = false;" ng-class="x.classname" ng-style="{backgroundImage: backgroundStyle}" ng-repeat="x in coordonnees" check-object-position >
-			</div>
 
 			<div class="address">
 				<span>4750 Wellington</span>
@@ -75,9 +73,13 @@
 				<span>514-819-2294</span>
 				<a href="mailto:info@boutiquereunion.com">info@boutiquereunion.com</a>
 			</div>
+
+			<div class="photo_coordonnees" ng-init="imageLoading = true; imageLoaded = false;" ng-class="x.classname" ng-style="{backgroundImage: backgroundStyle}" ng-repeat="x in coordonnees" check-object-position >
+			</div>
 		</div>
 		
 	</div>
+	<!-- inject -->
 </body>
-<!-- inject -->
+
 </html>

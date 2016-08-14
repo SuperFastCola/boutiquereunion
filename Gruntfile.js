@@ -35,7 +35,7 @@ module.exports = function(grunt) {
               separator: ';',
             },
             dist: {
-              src: ['javascript/src/lib/angular.min.js','javascript/src/lib/angular-route.min.js','javascript/src/lib/angular-sanitize.min.js','javascript/src/reunion.min.js'],
+              src: ['javascript/src/lib/angular.min.js','javascript/src/lib/angular-route.min.js','javascript/src/lib/angular-sanitize.min.js','javascript/src/lib/angular-animate.min.js','javascript/src/reunion.min.js'],
               dest: 'javascript/reunion.js',
             },
         },
@@ -60,7 +60,7 @@ module.exports = function(grunt) {
                 tasks: ['inject']
             },
             css: {
-                files: ['css/scss/reunion.styles.scss'],
+                files: ['css/scss/reunion.styles.scss','css/src/reunion.loading.css'],
                 tasks: ['compass']
             },
             scripts: {

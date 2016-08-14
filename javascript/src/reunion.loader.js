@@ -16,12 +16,13 @@
 	var loader = new Object();
 	loader.elementId = "loader";
 	loader.elementMessageId = "loading_message";
-	loader.classInitial = "clip_car";
+	loader.classInitial = "clip";
 	loader.classFinished = "right";
 
 
 	var elementsToShow = new Array();
-	elementsToShow.push("container");
+	elementsToShow.push("zone-coordonnees");
+	elementsToShow.push("zone-marques");
 
 	var loadingMessages = new Object();
 	loadingMessages.initial = "Loading";
@@ -110,8 +111,12 @@
 		setTimeout(function(){
 			//jquery is loaded at this point
 			var ldr = document.getElementById(loader.elementId);
-			document.body.removeChild(ldr);
-			document.body.className = "";
+
+			if(typeof ldr != "undefined" && ldr != null){
+				document.body.removeChild(ldr);
+				document.body.className = "";	
+			}
+			
 			
 		},500);
 	}
@@ -127,7 +132,13 @@
 		//loadOtherScripts(scriptsloaded);
 
 		if(scriptsloaded>scripts.length){
-			document.getElementById(loader.elementMessageId).innerHTML = loadingMessages.finished;
+
+			var ele = document.getElementById(loader.elementMessageId);
+
+			if(typeof ele != "undefined" && ele != null){
+				ele.innerHTML = loadingMessages.finished;	
+			}
+			
 		}
 
 		if(scriptsloaded==scripts.length){
@@ -157,7 +168,13 @@
 		}
 
 		if(cssloaded==links.length){
-			document.getElementById(loader.elementId).className=loader.classFinished;
+
+			var ele = document.getElementById(loader.elementId);
+
+			if(typeof ele != "undefined" && ele != null){
+				ele.className=loader.classFinished;	
+			}
+
 			unclipBodyRemoveCar();
 			loadCSSFontLinks();
 			
@@ -165,7 +182,11 @@
 
 				if(elementsToShow.length > 0 ){
 					for(var i in elementsToShow){
-						document.getElementById(elementsToShow[i]).style.display="block";	
+						var cssele = document.getElementById(elementsToShow[i]);
+
+						if(typeof cssele != "undefined" && cssele != null){
+							cssele.style.display="block";	
+						}
 					}	
 				}
 				else{
@@ -177,8 +198,13 @@
 	}
 
 	function loadJquery(){
-		document.getElementById(loader.elementId).className="";
-		document.getElementsByTagName("body").className=loader.classInitial;
+
+		var ele = document.getElementById(loader.elementId);
+
+		if(typeof ele != "undefined" && ele != null){
+			ele.className="";
+			document.getElementsByTagName("body").className=loader.classInitial;
+		}
 
 		loadScript(scripts[0]);
 	}
@@ -239,8 +265,19 @@
 		document.addEventListener("DOMContentLoaded",loadJquery);
 	}
 	else{
-		document.getElementById(loader.elementId).className="";
-		document.getElementById(loader.elementMessageId).innerHTML = loadingMessages.legacy;	
+
+		var ele1 = document.getElementById(loader.elementId);
+		var ele2 = document.getElementById(loader.elementMessageId);	
+
+
+		if(typeof ele != "undefined" && ele != null){
+			ele1.className="";
+
+			if(typeof ele2 != "undefined" && ele2 != null){
+				ele2.innerHTML = loadingMessages.legacy;
+			}
+
+		}
 	}
 
 })();

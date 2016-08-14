@@ -18,14 +18,20 @@ if [ -d "$uploadfrom" ]; then
 	 	fi
 		
 		if [[ "$i" =~ $directorypattern && -d $i ]]; then
-			aws s3 cp $uploadfrom/$i $bucketfullpath$i --recursive
+			aws s3 cp $uploadfrom/$i $bucketfullpath$i --recursive \
+			--exclude "*.DS*" \
+			--exclude "data-uri/*" \
+			--exclude "bourbon/*" \
+			--exclude "neat/*" \
+			--exclude "src/*" \
+			--exclude "scss/*"
 	 	fi
 	done
 	
 	#set read permissions for all files
 	for i in `aws s3api list-objects --bucket $bucket --query 'Contents[].{Key: Key}'`; do		
 
-		if [[ "$i" =~ $filepattern && ! "$i" =~ $excludeslash ]]; then
+		if [[ -n $filepattern && "$i" =~ $filepattern && ! "$i" =~ $excludeslash ]]; then
 			file=${i%\"} #strips quote from end
 	 		file=${file#\"} # strips quote from beginning
 	 		echo "Setting $file to public"

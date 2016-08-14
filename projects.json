@@ -17,12 +17,12 @@
 "coordonnees":[
 	{
 		"filename":"photo_vitrine.jpg",
-		"classname": "vitrine1",
+		"classname": "contact-photo1",
 		"description": "Vitrine de magasin"
 	},
 	{
 		"filename":"reunion-7542.jpg",
-		"classname": "reunion7542",
+		"classname": "contact-photo2",
 		"description": "Intérieur de magasin"
 	}
 ],

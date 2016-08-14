@@ -22,6 +22,9 @@
 		$scope.currentSlide = null;
 		$scope.selectedType = '';
 		$scope.scrollTop = 0;
+		$scope.navHeight = 0;
+		$scope.navHeightStyle = "auto";
+		$scope.smallscreen = (window.matchMedia("(min-width: 320px)").matches && window.matchMedia("(max-width: 480px)").matches)?true:false;
 
 		$scope.currentDate = new Date();
 		$scope.cacheBuster = 0;
@@ -82,6 +85,23 @@
 			else{
 				return false;
 			}
+		}
+
+		$scope.setNavHeight = function(){
+			var nav = document.querySelector('.contenu-marques');
+
+			$scope.navHeightStyle = "auto";	
+			
+			setTimeout(function(){
+
+				var newheight = nav.offsetHeight;
+
+				if(!isNaN(newheight) && newheight!=0){
+					$scope.navHeightStyle = String(newheight) + "px";
+				}
+
+			},500);
+
 		}
 
 		$scope.changeMarques = function(val){
@@ -231,6 +251,50 @@
 	 				document.body.clientHeight, document.documentElement.clientHeight,  
 	 				window.innerHeight  
 				);  
+				
+				$scope.scrollTop = $window.pageYOffset;
+				$scope.windowHeight = $window.innerHeight;
+				$scope.viewBottom = $scope.windowHeight;
+				return $scope.windowWidth = $window.innerWidth;  
+		   }; 
+
+	   		$scope.initializeWindowSize();  
+
+	   		return angular.element($window).bind('resize', function() {  
+	   			$scope.initializeWindowSize();  	   		
+	   			$scope.cacheBuster = 0;
+	   			$scope.$broadcast('scrollTop',{"scrollTop":$scope.scrollTop});
+	   			$scope.checkMobile();
+				return $scope.$apply();  
+	   		});  
+	  	};  
+	});
+
+	app.directive('loadInitialImage',function($http){
+	      return {
+	        link : function(scope, element, attrs) {
+	        	if(typeof scope.x.initial != "undefined"){
+	        		scope.$parent.currentSlide = scope.$index;
+	        	}
+
+	        	scope.$parent.loadBackground(scope);
+	        	
+	       	}
+	   	};
+	}); 
+
+	//http://nahidulkibria.blogspot.com/2014/10/angullarjs-directive-to-watch-window.html
+	app.directive('autoresize', function($window) {  
+		//passes scope to anonymous function
+	  	return function($scope) {  
+	   			
+				$scope.initializeWindowSize = function() {  
+				$scope.maxHeight = Math.max(  
+	 				document.body.scrollHeight, document.documentElement.scrollHeight,  
+	 				document.body.offsetHeight, document.documentElement.offsetHeight,  
+	 				document.body.clientHeight, document.documentElement.clientHeight,  
+	 				window.innerHeight  
+				);  
 		    	
 		    	$scope.scrollTop = $window.pageYOffset;
 		    	$scope.windowHeight = $window.innerHeight;
@@ -250,18 +314,6 @@
 	  	};  
 	});
 
-	app.directive('loadInitialImage',function($http){
-	      return {
-	        link : function(scope, element, attrs) {
-	        	if(typeof scope.x.initial != "undefined"){
-	        		scope.$parent.currentSlide = scope.$index;
-	        	}
-
-	        	scope.$parent.loadBackground(scope);
-	        	
-	       	}
-	   	};
-	}); 
 
 		//http://nahidulkibria.blogspot.com/2014/10/angullarjs-directive-to-watch-window.html
 	app.directive('scrollposition', function($window) {  
@@ -273,6 +325,7 @@
 	   		$scope.viewBottom = $window.pageYOffset + $window.innerHeight; 
 
 	   		return angular.element($window).bind('scroll', function() {  
+
 	   			$scope.scrollTop = $window.pageYOffset;
 	   			$scope.viewBottom = $window.pageYOffset + $window.innerHeight; 
 	    		return $scope.$apply();  

@@ -1,6 +1,6 @@
 @import "../bourbon/bourbon";
 @import "../neat/neat";
-// @import url(//fonts.googleapis.com/css?family=Roboto:300italic,400italic,700italic,400,700,300);
+@import url(//fonts.googleapis.com/css?family=Roboto:300italic,400italic,700italic,400,700,300);
 
 $rose: rgba(244,155,126,1);  /* HEX f49b7e */
 $taupe: rgba(167,163,146,1); /* HEX a7a392 */
@@ -64,7 +64,7 @@ $fontFamily1: 'Roboto', sans-serif;
 	-webkit-font-smoothing: antialiased;
 
   	@include media(max-width 320px){
-  		@include setFont(16px);
+  		font-size: 16px;
   	}
 }
 
@@ -190,6 +190,11 @@ $breakpoint_large: min-width 1200px;
 				display: block;
 				top: 50%;
 				margin-top: -15px;
+				border: 0px;
+
+				img{
+					border: 0px;
+				}
 
 				@include media($breakpoint_small){
 					top: 0%;
@@ -379,7 +384,6 @@ $breakpoint_large: min-width 1200px;
 	  			padding: 30px 10px 14px 10px;
 	  			background-color: $gris;
 	  			border-bottom: 1px solid $rose;
-	  			border-top: 1px solid black;
 	  		}
 		}
 
@@ -395,6 +399,9 @@ $breakpoint_large: min-width 1200px;
 				@include setFont(12px,$taupe,null,uppercase,null,center,400);
 				padding: 4px 10px 4px 10px;
 				display: inline-block;
+				cursor: pointer;
+
+				@include buttonBehavior;
 
 				&.selected{
 					color: white;
@@ -430,6 +437,7 @@ $breakpoint_large: min-width 1200px;
 				margin: 6px 10px 6px 10px;
 				@include border-top-radius($width/2);
 				@include border-bottom-radius($width/2);
+				@include transition(all,.25s);
 				background-color: rgba(167,163,146,.2);;
 
 				@include media($breakpoint_small){
@@ -441,6 +449,22 @@ $breakpoint_large: min-width 1200px;
 					margin: 6px 4px 6px 4px;
 					@include border-top-radius($width/2);
 					@include border-bottom-radius($width/2);
+				}
+
+				&.ng-enter{
+					@include opacity(0);
+				}
+
+				&.ng-leave{
+					@include opacity(0);
+				}
+
+				&.ng-enter-stagger {
+  					transition-delay: 0.1s;
+                	-webkit-transition-delay: 0.1s ;
+
+            		transition-duration: 0s ;
+                	-webkit-transition-duration: 0s ;
 				}
 
 				&.reduced_60{
@@ -467,16 +491,19 @@ $breakpoint_large: min-width 1200px;
 	}
 
 	.zone-marques{
+		display: none;
 		background-image: url("/images/full/marques_background.jpg");
-		background-size: auto 100%;
+		background-size: cover;
+		background-repeat: no-repeat;
 		background-position: center top;
 		
 		@include media($breakpoint_small){
-			background-image: none;
+			// background-image: none;
 		}
 	}
 
 	.zone-coordonnees{
+		display: none;
 		position: relative;
 		min-height: 380px;
 		background-image: url("/images/full/map_background.jpg");
@@ -490,38 +517,6 @@ $breakpoint_large: min-width 1200px;
 			// min-height: 250px;
 			background-position: 100% bottom;
 		}
-
-
-		div:nth-child(2){
-			margin-left: 40px;
-			margin-right: 30px;
-
-			@include media(max-width 725px){
-				width: 35%;
-				height: auto;
-				padding-bottom: 30%;
-				margin-right: 0px;
-			}
-
-			@include media(max-width 350px){
-				width: 35%;
-			}
-
-			@include media(max-width 400px){
-				display: block;
-				width: 85%;
-				height: auto;
-				padding-bottom: 70%;
-				margin: 136px auto 30px auto;
-			}
-		}
-
-		div:nth-child(3){
-			@include media(max-width 1024px){
-				display: none;
-			}
-		}
-
 		
 
 		.photo_coordonnees{
@@ -529,13 +524,44 @@ $breakpoint_large: min-width 1200px;
 			@include bdr(1px, $taupe);
 			width: 292px;
 			height: 241px;
-			margin: 36px 00px 0px 0px;
+			margin: 36px 0px 0px 0px;
 			background-size: cover;
 			background-position: center center;
+
+			&.contact-photo1{
+				margin-left: 40px;
+				margin-right: 30px;
+
+				@include media(max-width 725px){
+					width: 35%;
+					height: auto;
+					padding-bottom: 30%;
+					margin-right: 0px;
+				}
+
+				@include media(max-width 350px){
+					display: block;
+					width: 35%;
+				}
+
+				@include media(max-width 400px){
+					display: block;
+					width: 85%;
+					height: auto;
+					padding-bottom: 70%;
+					margin: 36px auto 30px auto;
+				}
+			}
+
+			&.contact-photo2{
+				@include media(max-width 1020px){
+					display: none;
+				}
+			}
 		}
 
 		.address{
-			padding: 70px 120px 0px 0px;
+			padding: 70px 90px 0px 0px;
 			float: right;
 
 			@include media(max-width 670px){
@@ -543,31 +569,36 @@ $breakpoint_large: min-width 1200px;
 				padding: 70px 0px 0px 0px;
 			}
 
-			@include media(max-width 400px){
-				position: absolute;
+			@include media(max-width 400px, min-width 320px){
 				width: 100%;
-				top: 30px;
+				margin-top: 30px;
 				float: none;
+				padding: 0px 0px 0px 0px;
 			}
 
 			span,a{
 				@include setFont(14px,null,null,uppercase,null,left,400);
 				letter-spacing: .1em;
+				padding-bottom: 3px;
 				display: block;
 
-				@include media(max-width 500px){
-					font-size: 12px;
+				@include media(max-width 480px){
+					letter-spacing: .05em;
 				}
 
 				@include media(max-width 400px){
 					text-align: center;
-					font-size: 14px;
+					letter-spacing: .1em;
 				}
 				
 			}
 
 			a{
-				@include buttonBehavior;
+				text-decoration: none;
+				
+				@include media(min-width 800px){
+					@include buttonBehavior;
+				}
 			}
 		}
 	}
