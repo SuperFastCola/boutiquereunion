@@ -12,6 +12,36 @@
 		"description": "Intérieur de magasin",
 		"classname": "photo2",
 		"blurb":null
+	},
+	{
+		"filename":"Reunion-7665.jpg",
+		"description": "Produits",
+		"classname": "photo3",
+		"blurb":null
+	},
+	{
+		"filename":"Reunion-7676.jpg",
+		"description": "Produits",
+		"classname": "photo4",
+		"blurb":null
+	},
+	{
+		"filename":"Reunion-7710.jpg",
+		"description": "Comptoir par dessous",
+		"classname": "photo5",
+		"blurb":null
+	},
+	{
+		"filename":"Reunion-7650.jpg",
+		"description": "Produits",
+		"classname": "photo6",
+		"blurb":null
+	},
+	{
+		"filename":"reunion-7542.jpg",
+		"description": "Caisse",
+		"classname": "photo7",
+		"blurb":null
 	}
 ],
 "coordonnees":[

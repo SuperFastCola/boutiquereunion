@@ -17,8 +17,8 @@ module.exports = function(grunt) {
                 options: {
                     sassDir: 'css/scss',
                     cssDir: 'css',
-                    environment: 'development',
-                    outputStyle: 'nested'
+                    environment: 'production',
+                    outputStyle: 'compressed'
                 }
             }
         },

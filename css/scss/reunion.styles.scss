@@ -345,7 +345,7 @@ $breakpoint_large: min-width 1200px;
 			}
 		}
 
-		.photo1,.photo2{
+		.photo1,.photo2,.photo3,.photo4,.photo5,.photo6,.photo7{
 			background-position: center 65%;
 
 			@include media($breakpoint_small){
@@ -542,7 +542,7 @@ $breakpoint_large: min-width 1200px;
 					width: 35%;
 				}
 
-				@include media(max-width 400px){
+				@include media(max-width 415px){
 					display: block;
 					width: 85%;
 					height: auto;
@@ -567,7 +567,7 @@ $breakpoint_large: min-width 1200px;
 				padding: 70px 0px 0px 0px;
 			}
 
-			@include media(max-width 400px, min-width 320px){
+			@include media(max-width 415px, min-width 320px){
 				width: 100%;
 				margin-top: 30px;
 				float: none;
@@ -584,7 +584,7 @@ $breakpoint_large: min-width 1200px;
 					letter-spacing: .05em;
 				}
 
-				@include media(max-width 400px){
+				@include media(max-width 415px){
 					text-align: center;
 					letter-spacing: .1em;
 				}
