@@ -259,23 +259,11 @@
 
 	}
 	//if( typeof window.addEventListener !="undefined" && !Boolean(navigator.userAgent.match(/msie\s(7|8|9)/i))){
-	if(checkForAnimations() || Boolean(navigator.userAgent.match(/msie\s(9)/i)) ){
+	if(checkForAnimations()){
 		document.addEventListener("DOMContentLoaded",loadJquery);
 	}
 	else{
-
-		var ele1 = document.getElementById(loader.elementId);
-		var ele2 = document.getElementById(loader.elementMessageId);	
-
-
-		if(typeof ele != "undefined" && ele != null){
-			ele1.className="";
-
-			if(typeof ele2 != "undefined" && ele2 != null){
-				ele2.innerHTML = loadingMessages.legacy;
-			}
-
-		}
+		window.location.assign("/legacy.html");
 	}
 
 })();

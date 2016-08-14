@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Boutique R&eacute;union</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge" >
+	<meta name="google-site-verification" content="Ocy0pCHA5vk1HEtPaKFJlyvkVoPRBeTCnxM4uC6pEJE" />
+	<link rel="stylesheet" type="text/css" href="/css/legacy.styles.css" />
+</head>
+<body>
+	<div class="holder">
+		<img class="logo" src="images/logo.svg" alt="Reunion"/>
+		<img class="tagline" src="images/tagline.svg" alt="Cuisine et Masion"/>
+		<div class="line"></div>
+		<a href="https://www.facebook.com/boutiquereunion/" target="facebook" data-href="outbound-facebook" class="icon_facebook social_icons" id="butn_facebook">
+			<img src="images/logo_fb.svg" alt="Icon Facebook"/>
+		</a>
+		<a href="https://www.instagram.com/boutiquereunion/" target="instagram" data-href="outbound-instagram" class="icon_instagram social_icons" id="butn_instagram">
+			<img src="images/logo_instagram.svg" alt="Icon Instagram"/>
+		</a>
+		<div class="address">4750 Wellington, Verdun QC H4G 1X3, <a href="mailto:info@boutiquereunion.com">info@boutiquereunion.com</a></div>
+		
+		<a href="https://goo.gl/maps/GpRQopKSiJw" target="google" class="icon">
+			<img class="drapeau" src="images/icon_drapeau.svg" alt="Icon drapeau"/>
+			<img class="carte" src="images/icon_carte.svg" alt="Icon carte"/>
+		</a>
+	</div>
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-77718372-1', 'auto');
+		ga('send', 'pageview');
+
+		var current = null;
+
+		var trackOutboundLink = function(e) {
+			e.preventDefault();
+			current = e.currentTarget;
+			ga('send', 'event', current.getAttribute("data-href"), 'click', current.getAttribute("href"), {
+				'transport': 'beacon',
+				'hitCallback': function(){					
+					document.location.href=current.getAttribute("href");
+				}
+			});
+		};
+
+		document.getElementById("butn_facebook").addEventListener("click", trackOutboundLink);
+		document.getElementById("butn_instagram").addEventListener("click", trackOutboundLink);
+
+	</script>
+
+	<script>
+	  window.fbAsyncInit = function() {
+	    FB.init({
+	      appId      : '575055385988791',
+	      xfbml      : true,
+	      version    : 'v2.6'
+	    });
+	  };
+
+	  (function(d, s, id){
+	     var js, fjs = d.getElementsByTagName(s)[0];
+	     if (d.getElementById(id)) {return;}
+	     js = d.createElement(s); js.id = id;
+	     js.src = "//connect.facebook.net/en_US/sdk.js";
+	     fjs.parentNode.insertBefore(js, fjs);
+	   }(document, 'script', 'facebook-jssdk'));
+	</script>
+</body>
+
+</html>

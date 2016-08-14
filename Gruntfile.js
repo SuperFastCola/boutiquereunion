@@ -60,7 +60,7 @@ module.exports = function(grunt) {
                 tasks: ['inject']
             },
             css: {
-                files: ['css/scss/reunion.styles.scss','css/src/reunion.loading.css'],
+                files: ['css/scss/reunion.styles.scss','css/src/reunion.loading.css','css/scss/legacy.styles.scss'],
                 tasks: ['compass']
             },
             scripts: {

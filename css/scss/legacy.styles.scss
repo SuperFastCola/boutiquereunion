@@ -1,0 +1,222 @@
+@import "../bourbon/bourbon";
+@import "../neat/neat";
+@import url(//fonts.googleapis.com/css?family=Roboto:300italic,400italic,700italic,400,700,300);
+
+$rose: rgba(244,155,126,1);
+$taupe: rgba(167,163,146,1);
+$gris: rgba(60,60,59,1);
+
+@mixin bdr($w: 1px, $color: red){
+	border: $w solid $color;
+}
+
+*{
+	box-sizing: border-box;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 300;
+	color: white;
+	text-align: center;
+  	font-size: 12px;
+  	letter-spacing: 0.07em;
+
+  	text-size-adjust: none;
+	-ms-text-size-adjust: none;
+	-webkit-text-size-adjust: none;
+	-webkit-font-smoothing: antialiased;
+
+  	@include media(max-width 320px){
+  		font-size: 16px;
+  	}
+}
+
+html,body{
+	padding:0px;
+	margin:0px;
+	background-color: $gris;
+}
+
+.holder{
+	$width: 600px;
+	$height: 650px;
+	width: $width;
+	height: $height;
+	position:absolute;
+	left: 50%;
+	top: auto;
+	margin-left: -($width/2);
+	margin-top: 30px;
+
+	div,img{
+		display:block;
+		width: 100%;
+	}
+
+	.tagline{
+		@include outer-container(50%);
+	}
+
+	.tagline,.address,.logo,.line{
+		margin-top: 60px;
+	}
+
+	.address{
+		margin-left: auto;
+		margin-right: auto;
+		margin-bottom: 30px;
+		margin-top: 30px;
+		@include outer-container(100%);
+
+		a{
+			font-size: 12px;
+			text-decoration: none;
+			opacity: 1;
+
+			@include transition(all,.25s);
+			cursor: pointer;
+
+			@include media(min-width ($width)){
+				&:hover{
+					text-decoration: underline;
+					opacity: .5;
+				}
+			}
+
+		}
+	}
+
+	.line{
+		border-top: 1px solid $taupe;
+		@include outer-container(15%);
+		padding: 0px;
+		margin: 40px auto 40px auto;
+	}
+
+	.icon{
+		display: block;
+		cursor: pointer;
+		@include outer-container(80px);
+		height: 70px;
+
+		position: relative;
+		margin-top: 0px;
+		@include media(min-width ($width)){
+
+			&:hover{
+				img{
+					&.drapeau{
+						@include transform(translateY(10px));
+					}
+
+				}
+			}
+		}
+
+		img{
+			position: absolute;
+			@include outer-container(80px);
+
+			@include transition(transform,.25s);
+
+			&.drapeau{
+				@include outer-container(20px);
+				z-index: 20;
+				left: 50%;
+				@include transform(translateY(20px));
+				margin-left: -10px;
+
+			}
+
+			&.carte{
+				z-index: 10;
+				bottom: 0px;
+			}
+		}
+
+	}
+
+	.social_icons{
+		display: inline-block;
+		cursor: pointer;
+		height: 40px;
+		width: 40px;
+		margin: 10px 7px 10px 7px;
+
+		opacity: 1;
+
+		@include transition(all,.25s);
+		cursor: pointer;
+
+		@include media(min-width ($width)){
+			&:hover{
+				text-decoration: underline;
+				opacity: .5;
+			}
+		}
+
+		img{
+			width: 100%;
+			height: 100%;
+			display: block;
+		}
+	}
+
+
+	@include media(max-width ($width + 1)){
+		$width: 100%;
+		width: $width;
+		margin-left: -($width/2);
+		top: 0%;
+		margin-top: 0px;
+
+		
+		div,img{
+			@include outer-container(90%);
+		}  	
+
+		.tagline{
+			@include outer-container(60%);
+		}
+  	}
+
+  	@include media(max-width 480px){
+
+		$width: 100%;
+		$height: 520px;
+		width: $width;
+		height: $height;
+		position:absolute;
+		left: 50%;
+		top: 0px;
+		margin-left: -($width/2);
+		margin-top: 0px;
+
+		.tagline,.address,.logo,.line{
+			margin-top: 40px;
+		}
+
+		.line{
+			margin-bottom: 30px;
+		}
+
+		.social_icons{
+			margin: 0px 4px 20px 4px;
+		}
+
+  		.logo{
+  			margin-top: 60px;
+  		}
+
+  		.address{
+  			font-size: 12px;
+  			margin-top: 10px;
+  			margin-bottom: 10px;
+  			@include outer-container(80%);
+
+  			a{
+				display: block;
+			}
+  		}
+  	}
+}
+
+
