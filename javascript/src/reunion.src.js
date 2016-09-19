@@ -23,6 +23,8 @@
 		$scope.selectedType = '';
 		$scope.scrollTop = 0;
 		$scope.navHeight = 0;
+		$scope.nouvelles = new Array();
+		$scope.showNews = false;
 		$scope.navHeightStyle = "auto";
 		$scope.smallscreen = (window.matchMedia("(min-width: 320px)").matches && window.matchMedia("(max-width: 480px)").matches)?true:false;
 
@@ -136,6 +138,21 @@
 
 			$scope.selectedType = $scope.setType(0);
 			$scope.selectedTypeIndex = 0;
+
+			$http.get("/nouvelles.json").success($scope.displayNouvelles);
+
+		}
+
+
+		$scope.displayNouvelles = function(response){
+			if(response.length > 10){
+				$scope.nouvelles.push(JSON.parse(response));
+				$scope.showNews = true;
+			}			
+		}
+
+		$scope.renderBackground = function(image){
+			 return "url(" + image + ")";	
 		}
 
 		$scope.loadSlideShow = function(scope){

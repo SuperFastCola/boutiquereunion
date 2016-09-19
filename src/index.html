@@ -35,7 +35,22 @@
 				</a>
 			</div>
 		</div>
+		
 		<div class="slideshow">
+		<div class="nouvelles" ng-repeat="news in nouvelles" ng-class="{displayNews: showNews}">
+				<span> Nouvelles</span>
+				<img ng-src={{news.picture}} class="nouvellesImage" />
+				<div class="nouvellesText">
+					{{news.message}}
+
+					<a ng-href="{{news.link}}" target="new">
+					<svg class="icon">
+						<path class="symbol" d="M 26 1 L 26 1 L 6 1 L 6 20 L 26 20 L 26 1 M 6 5 L 1 5 L 1 25 L 21 25 L 21 20"></path>
+					</svg>
+					</a>
+
+				</div>
+			</div>
 			<a class="slide_butn right" ng-click="changeSlide(true)">
 				<svg class="icon arrow">
 					<path class="symbol" d="M 19 10 L 35 25.25 L 19 40" ></path>

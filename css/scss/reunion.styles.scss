@@ -248,11 +248,63 @@ $breakpoint_large: min-width 1200px;
 		}
 	}
 
+	.nouvelles{
+		position: absolute;
+		z-index: 200;
+		background-color: white;
+		right: 20px;
+		top: 20px;
+		display: none;
+		width: 300px;
+		padding: 10px;
+		border-bottom: 4px solid $gris;
+
+		&.displayNews{
+			display:block;
+		}
+
+		span{
+			display: block;
+			@include setFont(12px,black,null,uppercase,null,left,700);
+		}
+
+        .icon{
+			width: 27px;
+			height: 27px;
+			display: block;
+			margin: 15px 0px 5px 0px;
+			float: right;
+			@include buttonBehavior;
+
+        	.symbol{
+				fill: transparent;
+				stroke: $rose;
+				stroke-width: 1;
+			}
+
+        }
+
+		.nouvellesImage{
+			display: inline-block;
+			float:left;
+			width: 35%;
+			margin: 0px 10px 0px 0px;
+		}
+
+		.nouvellesText{
+			display: inline-block;
+			float:left;
+			width: 60%;
+			@include setFont(12px,black,null,null,null,left,400);
+			letter-spacing: 0em;
+		}
+
+	}
+
 	.slideshow{
 		height: 420px;
 		position: relative;
 		overflow: hidden;
-
 		background-color: $black;
 
 
