@@ -252,12 +252,29 @@ $breakpoint_large: min-width 1200px;
 		position: absolute;
 		z-index: 200;
 		background-color: white;
-		right: 20px;
-		top: 20px;
+		right: 25px;
+		top: 125px;
 		display: none;
 		width: 300px;
 		padding: 10px;
 		border-bottom: 4px solid $gris;
+
+		@include media($breakpoint_small){
+			position: relative;
+			right: auto;
+			top: auto;
+			width: 100%;
+			border-bottom: 0px;
+			overflow: hidden;
+			height: auto;
+			padding: 5px 5px 5px 10px;
+			border-top: 1px solid $gris;
+			border-bottom: 1px solid $rose;
+		}
+
+		@include media(max-width 415px, min-width 320px){
+			padding: 10px 10px 0px 10px;
+		}
 
 		&.displayNews{
 			display:block;
@@ -266,22 +283,37 @@ $breakpoint_large: min-width 1200px;
 		span{
 			display: block;
 			@include setFont(12px,black,null,uppercase,null,left,700);
+			padding-bottom: 3px;
+
+			@include media($breakpoint_small){
+				display: none;
+			}
 		}
 
-        .icon{
+        a, .icon{
 			width: 27px;
 			height: 27px;
-			display: block;
-			margin: 15px 0px 5px 0px;
-			float: right;
-			@include buttonBehavior;
 
         	.symbol{
 				fill: transparent;
 				stroke: $rose;
 				stroke-width: 1;
 			}
+        }
 
+        .icon{
+        	margin: 0px;
+
+        	@include media($breakpoint_small){
+				@include transform(scale(0.8));
+			}
+        }
+
+        a{
+        	margin: 15px 0px 5px 0px;
+        	display: block;
+			float: right;
+			@include buttonBehavior;
         }
 
 		.nouvellesImage{
@@ -289,6 +321,17 @@ $breakpoint_large: min-width 1200px;
 			float:left;
 			width: 35%;
 			margin: 0px 10px 0px 0px;
+
+			@include media($breakpoint_small){
+				max-width: 10%;
+			}
+
+			@include media(max-width 415px, min-width 320px){
+				width: auto;
+				max-width: 20%;
+				height: auto;
+				margin: 0px 10px 10px 0px;
+			}
 		}
 
 		.nouvellesText{
@@ -297,6 +340,31 @@ $breakpoint_large: min-width 1200px;
 			width: 60%;
 			@include setFont(12px,black,null,null,null,left,400);
 			letter-spacing: 0em;
+
+			@include media($breakpoint_small){
+				width: auto;
+				float: none;
+				max-width: 83%;
+				height: 100%;
+
+				&:before{
+					content: "Nouvelles";
+					display: block;
+					@include setFont(12px,black,null,uppercase,null,left,700);
+					padding: 0px 0px 0px 0px;
+				}
+			}
+
+			@include media(max-width 415px, min-width 320px){
+				width: auto;
+				float: none;
+				max-width: 75%;
+				height: 100%;
+				overflow-y: scroll;
+				overflow: hidden;
+			}
+
+
 		}
 
 	}
