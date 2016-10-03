@@ -25,6 +25,7 @@
 		$scope.navHeight = 0;
 		$scope.nouvelles = new Array();
 		$scope.showNews = false;
+		$scope.minimizeNewsArea = false;
 		$scope.navHeightStyle = "auto";
 		$scope.smallscreen = (window.matchMedia("(min-width: 320px)").matches && window.matchMedia("(max-width: 480px)").matches)?true:false;
 
@@ -143,12 +144,20 @@
 
 		}
 
+		$scope.minimizeNews = function(){
+			$scope.minimizeNewsArea = !$scope.minimizeNewsArea;
+		}
 
 		$scope.displayNouvelles = function(response){
-			if(response.length > 10){
+
+			if(typeof response != "object" && String(response).length > 10){
 				$scope.nouvelles.push(JSON.parse(response));
 				$scope.showNews = true;
-			}			
+			}
+			else if(typeof response == "object"){
+				$scope.nouvelles.push(response);
+				$scope.showNews = true;
+			}
 		}
 
 		$scope.renderBackground = function(image){

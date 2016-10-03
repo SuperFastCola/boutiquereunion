@@ -258,6 +258,46 @@ $breakpoint_large: min-width 1200px;
 		width: 300px;
 		padding: 10px;
 		border-bottom: 4px solid $gris;
+		@include transition(all,.25s);
+
+		&.minimized{
+			height: 40px;
+
+			.nouvellesText{
+				a{
+					display: none;
+				}
+			}
+
+		}
+
+
+		.nouvellesarrow{
+			position: absolute;
+			right: 14px;
+			width: 20px;
+			height: 20px;
+			position: absolute;
+			fill: transparent;
+			stroke: $rose;
+			stroke-width: 2;
+			@include transition(transform,.25s);
+
+			@include transform(rotate(-180deg));
+
+			&.minimized{
+				@include transform(rotate(0deg));
+			}
+
+			.symbol{
+				width: 100%;
+				height: 100%;
+			}
+
+			@include media($breakpoint_small){
+				display: none;
+			}
+		}
 
 		@include media($breakpoint_small){
 			position: relative;
@@ -290,75 +330,67 @@ $breakpoint_large: min-width 1200px;
 			}
 		}
 
-        a, .icon{
-			width: 27px;
-			height: 27px;
-
-        	.symbol{
-				fill: transparent;
-				stroke: $rose;
-				stroke-width: 1;
-			}
-        }
-
-        .icon{
-        	margin: 0px;
-
-        	@include media($breakpoint_small){
-				@include transform(scale(0.8));
-			}
-        }
-
         a{
-        	margin: 15px 0px 5px 0px;
-        	display: block;
-			float: right;
-			@include buttonBehavior;
-        }
+        	width: 145px;
+        	display: inline-block;
+        	margin: 5px 0px;
+        	text-align: left;
+        	line-height: 14px;
+        	float: left;
+        	color: $gris;
+        	text-decoration: none;
 
-		.nouvellesImage{
-			display: inline-block;
-			float:left;
-			width: 35%;
-			margin: 0px 10px 0px 0px;
+        	@include media($breakpoint_medium){
+				@include buttonBehavior;
+			}
 
 			@include media($breakpoint_small){
-				max-width: 10%;
+				width: 73%;
+			}
+        }
+
+		.nouvellesImageHolder{
+			display: inline-block;
+			float: right;
+			width: 110px;
+			height: 110px;
+			overflow: hidden;
+			margin: 8px 0px 10px 0px;
+			background-position: center center;
+			background-size: cover;
+			background-repeat: no-repeat;
+
+			@include media($breakpoint_small){
+				width: 80px;
+				height: 80px;
+				top: -10px;
+				margin: 0px 0px 10px 0px;
 			}
 
-			@include media(max-width 415px, min-width 320px){
-				width: auto;
-				max-width: 20%;
-				height: auto;
-				margin: 0px 10px 10px 0px;
-			}
 		}
 
 		.nouvellesText{
 			display: inline-block;
 			float:left;
-			width: 60%;
+			width: 100%;
 			@include setFont(12px,black,null,null,null,left,400);
 			letter-spacing: 0em;
+			padding: 0px 5px;
 
-			@include media($breakpoint_small){
-				width: auto;
-				float: none;
-				max-width: 83%;
-				height: 100%;
 
-				&:before{
-					content: "Nouvelles";
-					display: block;
-					@include setFont(12px,black,null,uppercase,null,left,700);
-					padding: 0px 0px 0px 0px;
-				}
+			&:before{
+				content: "Nouvelles";
+				display: block;
+				@include setFont(12px,black,null,uppercase,null,left,700);
+				padding: 0px 0px 0px 0px;
 			}
 
+
 			@include media(max-width 415px, min-width 320px){
+				padding: 0px 10px;
 				width: auto;
 				float: none;
-				max-width: 75%;
+				width: 100%;
 				height: 100%;
 				overflow-y: scroll;
 				overflow: hidden;

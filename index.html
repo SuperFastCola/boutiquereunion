@@ -51,18 +51,15 @@
 			</div>
 		</div>
 
-		<div class="nouvelles" ng-repeat="news in nouvelles" ng-class="{displayNews: showNews}">
-				<span> Nouvelles</span>
-				<img ng-src={{news.picture}} class="nouvellesImage" />
+		<div class="nouvelles" ng-repeat="news in nouvelles" ng-class="{displayNews: showNews, minimized: minimizeNewsArea}">
+
+				<svg class="nouvellesarrow" ng-click="minimizeNews()" ng-class="{minimized: minimizeNewsArea}">
+					<path class="symbol" d="M 1 5 L 10 14 L 18 5" ></path>
+				</svg>
+
 				<div class="nouvellesText">
-					{{news.message}}
-
-					<a ng-href="{{news.link}}" target="new">
-						<svg class="icon">
-							<path class="symbol" d="M 26 1 L 26 1 L 6 1 L 6 20 L 26 20 L 26 1 M 6 5 L 1 5 L 1 25 L 21 25 L 21 20"></path>
-						</svg>
-					</a>
-
+					<a ng-href="{{news.link}}" target="new">{{news.message}}</a>
+					<a ng-href="{{news.link}}" target="new" class="nouvellesImageHolder" ng-style="{backgroundImage:renderBackground(news.picture)}"></a>
 				</div>
 		</div>
 
