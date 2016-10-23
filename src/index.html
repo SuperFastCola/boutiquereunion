@@ -58,8 +58,10 @@
 				</svg>
 
 				<div class="nouvellesText">
-					<a ng-href="{{news.link}}" target="new">{{news.message}}</a>
-					<a ng-href="{{news.link}}" target="new" class="nouvellesImageHolder" ng-style="{backgroundImage:renderBackground(news.picture)}"></a>
+					<a ng-href="{{news.link}}" ng-if="news.message" ng-class="{fullwidth:!news.picture}" target="new">{{news.message}}</a>
+					<a ng-href="{{news.link}}" ng-if="!news.message" ng-class="{fullwidth:!news.picture}" target="new">{{news.description}}</a>
+
+					<a ng-href="{{news.link}}" ng-if="news.picture" target="new" class="nouvellesImageHolder" ng-style="{backgroundImage:renderBackground(news.picture)}"></a>
 				</div>
 		</div>
 

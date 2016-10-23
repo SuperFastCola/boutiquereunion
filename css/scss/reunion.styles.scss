@@ -258,7 +258,6 @@ $breakpoint_large: min-width 1200px;
 		width: 300px;
 		padding: 10px;
 		border-bottom: 4px solid $gris;
-		@include transition(all,.25s);
 
 		&.minimized{
 			height: 40px;
@@ -282,8 +281,13 @@ $breakpoint_large: min-width 1200px;
 			stroke: $rose;
 			stroke-width: 2;
 			@include transition(transform,.25s);
-
 			@include transform(rotate(-180deg));
+			cursor: pointer;
+
+
+			@include media($breakpoint_medium){
+				@include buttonBehavior;
+			}
 
 			&.minimized{
 				@include transform(rotate(0deg));
@@ -339,13 +343,19 @@ $breakpoint_large: min-width 1200px;
         	float: left;
         	color: $gris;
         	text-decoration: none;
+        	@include setFont(12px,black,null,null,null,left,400);
 
         	@include media($breakpoint_medium){
 				@include buttonBehavior;
 			}
 
 			@include media($breakpoint_small){
-				width: 73%;
+				width: 69%;
+			}
+
+			&.fullwidth{
+				margin: 10px 10px 15px 0px;
+				width: 100%;
 			}
         }
 
@@ -387,7 +397,7 @@ $breakpoint_large: min-width 1200px;
 
 
 			@include media(max-width 415px, min-width 320px){
-				padding: 0px 10px;
+				padding: 0px 10px 10px 10px;
 				width: auto;
 				float: none;
 				width: 100%;
