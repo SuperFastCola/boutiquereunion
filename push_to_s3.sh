@@ -3,8 +3,8 @@
 #!/bin/sh
 #change user,group and perms for multplie directoies
 
-directorypattern="(images)"
-filepattern="(html|json)"
+directorypattern="(nothing)"
+filepattern="(json)"
 excludeslash="\/"
 bucket="boutiquereunion.com"
 bucketfullpath="s3://$bucket/"
