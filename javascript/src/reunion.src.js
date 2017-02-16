@@ -140,7 +140,7 @@
 			$scope.selectedType = $scope.setType(0);
 			$scope.selectedTypeIndex = 0;
 
-			$http.get("/nouvelles.json").success($scope.displayNouvelles);
+			$http.get(("/nouvelles.json?="+new Date().getTime())).success($scope.displayNouvelles);
 
 		}
 

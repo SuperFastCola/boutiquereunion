@@ -258,6 +258,7 @@ $breakpoint_large: min-width 1200px;
 		width: 300px;
 		padding: 10px;
 		border-bottom: 4px solid $gris;
+		word-wrap: break-word;
 
 		&.minimized{
 			height: 40px;
