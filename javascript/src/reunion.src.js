@@ -134,11 +134,13 @@
 			$scope.types = new Array();
 
 			for( k in $scope.marques){
-				$scope.types.push(k);
+				$scope.types.push($scope.marques[k]);	
 			}
 
-			$scope.selectedType = $scope.setType(0);
-			$scope.selectedTypeIndex = 0;
+			$scope.selectedType = $scope.types;
+
+			// $scope.selectedType = $scope.setType(0);
+			// $scope.selectedTypeIndex = 0;
 
 			$http.get(("/nouvelles.json?="+new Date().getTime())).success($scope.displayNouvelles);
 
