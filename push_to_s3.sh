@@ -4,7 +4,7 @@
 #change user,group and perms for multplie directoies
 
 directorypattern="(css|javascript)"
-filepattern="(css|js|html|json)"
+filepattern="(css|js|html)"
 excludeslash="\/"
 bucket="boutiquereunion.com"
 bucketfullpath="s3://$bucket/"

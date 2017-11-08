@@ -76,13 +76,20 @@
 		</div>
 
 		<div class="zone-instagram" id="zone-instagram">
-			<h1>Sur Instagram</h1>
+			<h1><img src="images/full/logo_instagram.svg" alt="Icon Instagram"/>Sur Instagram</h1>
 
 			<div class="contenu-instagram">
 				<div class="contenu-holder">
-					<a ng-href="{{y.link}}" target="instagram" ng-repeat="y in instagram" ng-style="{backgroundImage: marquesLogos(y.image)}">
-						<span>{{y.caption}}</span>
-					</a>
+					<div class="instagram_post" ng-repeat="y in instagram">
+						<a ng-href="{{y.link}}" target="instagram"  ng-class="{'show': show}" ng-style="{backgroundImage: marquesLogos(y.image)}">
+							<span>{{y.caption}}</span>
+						</a>
+						<a class="insta-arrow-holder"ng-click="showInstagramDescription()">
+							<svg class="nouvellesarrow"  ng-class="{'maximized': show}" >
+								<path class="symbol" d="M 1 5 L 10 14 L 18 5" ></path>
+							</svg>
+						</a>
+					</div>
 				</div>
 			</div>
 		</div>

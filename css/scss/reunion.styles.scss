@@ -249,31 +249,7 @@ $breakpoint_large: min-width 1200px;
 		}
 	}
 
-	.nouvelles{
-		position: absolute;
-		z-index: 200;
-		background-color: white;
-		right: 25px;
-		top: 125px;
-		display: none;
-		width: 300px;
-		padding: 10px;
-		border-bottom: 4px solid $gris;
-		word-wrap: break-word;
-
-		&.minimized{
-			height: 40px;
-
-			.nouvellesText{
-				a{
-					display: none;
-				}
-			}
-
-		}
-
-
-		.nouvellesarrow{
+	.nouvellesarrow{
 			position: absolute;
 			right: 14px;
 			width: 20px;
@@ -304,6 +280,31 @@ $breakpoint_large: min-width 1200px;
 				display: none;
 			}
 		}
+
+
+	.nouvelles{
+		position: absolute;
+		z-index: 200;
+		background-color: white;
+		right: 25px;
+		top: 125px;
+		display: none;
+		width: 300px;
+		padding: 10px;
+		border-bottom: 4px solid $gris;
+		word-wrap: break-word;
+
+		&.minimized{
+			height: 40px;
+
+			.nouvellesText{
+				a{
+					display: none;
+				}
+			}
+
+		}
+
 
 		@include media($breakpoint_small){
 			position: relative;
@@ -661,32 +662,32 @@ $breakpoint_large: min-width 1200px;
 		padding-bottom: 0px;
 
 		h1{
-			padding: 20px 0px 6px 87px;
-			background-image: url(images/full/logo_instagram.svg);
-			background-repeat: no-repeat;
-			background-position: 50px 24px;
-			background-size: auto 40%;
+			img{
+				position: relative;
+				top: 2px;
+				display: inline-block;
+				width: 20px;
+				height: 20px;
+				margin-right: 10px;
+			}			
 		}
 
 		.contenu-instagram{
-			a{
-				position: relative;
-				$width: 25%;
-				display: inline-block;
-				background-size: cover;
-				background-position: center center;
-				background-repeat: no-repeat;
-				padding: 0px;
-				width: $width;
-				min-width: 200px;
-				height: 320px;
-				font-size: 0;
-				margin: 0px;
-				border: 0px;
-				overflow: hidden; 
-				@include transition(all,.25s);
-				background-color: rgba(167,163,146,.1);
 
+			div.instagram_post{
+				position: relative;
+				display: inline-block;
+				$width: 33%;
+				border: 0px;
+				min-width: 200px;
+				width: $width;
+				height: 320px;
+				padding: 0px;
+				font-size: 0;
+
+				@include media($breakpoint_large){
+					width: 25%;
+				}
 				
 				@include media($breakpoint_medium-down){
 					width: 33%;
@@ -696,42 +697,95 @@ $breakpoint_large: min-width 1200px;
 				@include media($breakpoint_small){
 					width: 50%;
 					height: 200px;
+
+					a{
+						&.show{
+							span{
+								bottom: 50%;
+								transform: translateY(50%) translateX(0%);
+							}
+						}
+
+						span{
+							font-size: 12px;
+							width: 100%;
+							transform: translateY(100%) translateX(0%);
+							padding: 20px 10px;
+							left: 0%;
+						}
+					}
 				}
 
 				@include media($breakpoint_extra-small){
 					width: 100%;
 					height: 320px;
 				}
+			}
 
-				&:hover{
+			.insta-arrow-holder{
+				position: absolute;
+				background-color: rgba(255,255,255,.8);
+				width: 40px;
+				height: 40px;
+				bottom: 0px;
+				right: 0px;
+				z-index: 20;
+				cursor: pointer;
 
+				.nouvellesarrow{
+					cursor: pointer;
+					top: 50%;
+					left: 50%;
+					transform: translateY(-50%) translateX(-50%) rotate(0deg);
+
+					@include media($breakpoint_small){
+						display: block;
+					}
+
+					&.maximized{
+						transform: translateY(-50%) translateX(-50%) rotate(180deg);
+					}
+				}
+
+			}
+
+			a{
+				position: absolute;
+				z-index: 10;
+				display: block;
+				background-size: cover;
+				background-position: center center;
+				background-repeat: no-repeat;
+				width: 100%;
+				height: 100%;
+				margin: 0px;
+				padding: 0px;
+				border: 0px;
+				overflow: hidden; 
+
+				&.show{
 					span{
-						transform: translateY(0%);
+						bottom: 50%;
+						transform: translateY(50%) translateX(-50%);
 					}
 				}
 
 				span{
 					position: absolute;
-					width: 100%;
-					transform: translateY(100%);
+					width: 80%;
+					transform: translateY(100%) translateX(-50%);
 					bottom: 0%;
-					left: 0px;
-					text-align: left;
-					font-size: 12px;
-					padding: 10px 10px 20px 20px;
+					left: 50%;
+					text-align: center;
+					font-size: 14px;
+					padding: 20px;
 					display: block;
 					color: white;
 					background-color: $gris;
 					@include transition(transform,.25s);
 
 					@include media($breakpoint_small){
-						display: none;
-						transform: translateY(0%);
-						color: white;
-						font-size: 10px;
-						font-weight: 700;
-						padding: 10px 10px 10px 20px;
-						background-color: rgba(60,60,59,.8);
+					
 					}
 				}
 			} 

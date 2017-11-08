@@ -165,6 +165,12 @@
 			$http.get(("/instagram.json?="+new Date().getTime())).success($scope.displayInstagram);
 		}
 
+		$scope.showInstagramDescription = function(){
+
+			this.show = !this.show;
+			//$scope.class = console.log(this);
+		}
+
 		$scope.displayInstagram = function(repsonse){
 			for(var i in repsonse.challenge.data){
 				$scope.instagram.push({
