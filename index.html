@@ -75,6 +75,18 @@
 			</div>
 		</div>
 
+		<div class="zone-instagram" id="zone-instagram">
+			<h1>Sur Instagram</h1>
+
+			<div class="contenu-instagram">
+				<div class="contenu-holder">
+					<a ng-href="{{y.link}}" target="instagram" ng-repeat="y in instagram" ng-style="{backgroundImage: marquesLogos(y.image)}">
+						<span>{{y.caption}}</span>
+					</a>
+				</div>
+			</div>
+		</div>
+
 		<div class="zone-coordonnees" id="zone-coordonnees">
 			<h1>Nos Coordonnées</h1>
 

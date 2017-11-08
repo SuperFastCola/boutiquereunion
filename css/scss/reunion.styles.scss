@@ -74,8 +74,9 @@ html,body{
 	background-color: $gris;
 }
 
-
+$breakpoint_extra-small: max-width 400px;
 $breakpoint_small: max-width 600px;
+$breakpoint_medium-down: max-width 768px;
 $breakpoint_medium: min-width 800px;
 $breakpoint_large: min-width 1200px;
 
@@ -525,7 +526,7 @@ $breakpoint_large: min-width 1200px;
 			}
 		}
 	}
-	.zone-marques,.zone-coordonnees{
+	.zone-marques,.zone-coordonnees,.zone-instagram{
 		padding-bottom: 20px;
 		background-color: rgba(0,0,0,.5);
 
@@ -649,6 +650,88 @@ $breakpoint_large: min-width 1200px;
 
 					&.hidden{
 						display: none;
+					}
+				}
+			} 
+		}
+	}
+
+	.zone-instagram
+	{
+		padding-bottom: 0px;
+
+		h1{
+			padding: 20px 0px 6px 87px;
+			background-image: url(images/full/logo_instagram.svg);
+			background-repeat: no-repeat;
+			background-position: 50px 24px;
+			background-size: auto 40%;
+		}
+
+		.contenu-instagram{
+			a{
+				position: relative;
+				$width: 25%;
+				display: inline-block;
+				background-size: cover;
+				background-position: center center;
+				background-repeat: no-repeat;
+				padding: 0px;
+				width: $width;
+				min-width: 200px;
+				height: 320px;
+				font-size: 0;
+				margin: 0px;
+				border: 0px;
+				overflow: hidden; 
+				@include transition(all,.25s);
+				background-color: rgba(167,163,146,.1);
+
+				
+				@include media($breakpoint_medium-down){
+					width: 33%;
+					height: 200px;
+				}
+
+				@include media($breakpoint_small){
+					width: 50%;
+					height: 200px;
+				}
+
+				@include media($breakpoint_extra-small){
+					width: 100%;
+					height: 320px;
+				}
+
+				&:hover{
+
+					span{
+						transform: translateY(0%);
+					}
+				}
+
+				span{
+					position: absolute;
+					width: 100%;
+					transform: translateY(100%);
+					bottom: 0%;
+					left: 0px;
+					text-align: left;
+					font-size: 12px;
+					padding: 10px 10px 20px 20px;
+					display: block;
+					color: white;
+					background-color: $gris;
+					@include transition(transform,.25s);
+
+					@include media($breakpoint_small){
+						display: none;
+						transform: translateY(0%);
+						color: white;
+						font-size: 10px;
+						font-weight: 700;
+						padding: 10px 10px 10px 20px;
+						background-color: rgba(60,60,59,.8);
 					}
 				}
 			} 

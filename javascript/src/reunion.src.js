@@ -20,6 +20,7 @@
 		$scope.coordonnees = null;
 		$scope.types = null;
 		$scope.currentSlide = null;
+		$scope.instagram = new Array();
 		$scope.selectedType = '';
 		$scope.scrollTop = 0;
 		$scope.navHeight = 0;
@@ -160,6 +161,22 @@
 				$scope.nouvelles.push(response);
 				$scope.showNews = true;
 			}
+
+			$http.get(("/instagram.json?="+new Date().getTime())).success($scope.displayInstagram);
+		}
+
+		$scope.displayInstagram = function(repsonse){
+			for(var i in repsonse.challenge.data){
+				$scope.instagram.push({
+					"caption":repsonse.challenge.data[i].caption.text,
+					"image":repsonse.challenge.data[i].images.low_resolution.url,
+					"link":repsonse.challenge.data[i].link
+				});
+					
+				if(i==11){
+					break;
+				}
+			}
 		}
 
 		$scope.renderBackground = function(image){
@@ -227,7 +244,6 @@
 		}
 
 		$scope.mobile = "full";
-
 
 		$http.get("/projects.json").success($scope.parseResponse);
 
