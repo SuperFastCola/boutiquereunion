@@ -707,7 +707,6 @@ $breakpoint_large: min-width 1200px;
 						}
 
 						span{
-							font-size: 12px;
 							width: 100%;
 							transform: translateY(100%) translateX(0%);
 							padding: 20px 10px;
@@ -784,8 +783,12 @@ $breakpoint_large: min-width 1200px;
 					background-color: $gris;
 					@include transition(transform,.25s);
 
+					@include media($breakpoint_medium-down){
+						font-size: 12px;
+					}
+
 					@include media($breakpoint_small){
-					
+						font-size: 12px;
 					}
 				}
 			} 
