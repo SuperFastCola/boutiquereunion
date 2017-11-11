@@ -7,7 +7,7 @@
 	<meta id="view_port" name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="google-site-verification" content="Ocy0pCHA5vk1HEtPaKFJlyvkVoPRBeTCnxM4uC6pEJE" />
-	<link rel="stylesheet" type="text/css" href="css/reunion.styles.css?v=2.1">
+	<link rel="stylesheet" type="text/css" href="css/reunion.styles.css?v=2.3">
 	<style type="text/css">
 	@@includecss
 	</style>
@@ -65,16 +65,6 @@
 				</div>
 		</div>
 
-		<div class="zone-marques" id="zone-marques">
-			<h1>Nos Marques</h1>
-
-			<div class="contenu-marques" ng-style="{height:navHeightStyle}">
-				<div class="contenu-holder">
-				<a ng-repeat="y in selectedType" ng-style="{backgroundImage: marquesLogos(y.logo)}" ng-class="marqueHasClass(y)"><span ng-class="{hidden:marqueHasLogo(y.logo)}">{{y.name}}</span></a>
-				</div>
-			</div>
-		</div>
-
 		<div class="zone-instagram" id="zone-instagram">
 			<h1><img src="images/full/logo_instagram.svg" alt="Icon Instagram"/>Sur Instagram</h1>
 
@@ -93,6 +83,17 @@
 				</div>
 			</div>
 		</div>
+
+		<div class="zone-marques" id="zone-marques">
+			<h1>Nos Marques</h1>
+
+			<div class="contenu-marques" ng-style="{height:navHeightStyle}">
+				<div class="contenu-holder">
+				<a ng-repeat="y in selectedType" ng-style="{backgroundImage: marquesLogos(y.logo)}" ng-class="marqueHasClass(y)"><span ng-class="{hidden:marqueHasLogo(y.logo)}">{{y.name}}</span></a>
+				</div>
+			</div>
+		</div>
+
 
 		<div class="zone-coordonnees" id="zone-coordonnees">
 			<h1>Nos Coordonnées</h1>
