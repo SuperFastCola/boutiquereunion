@@ -618,6 +618,10 @@ $breakpoint_large: min-width 1200px;
 					@include border-bottom-radius($width/2);
 				}
 
+				&:hover{
+					@include opacity(.5);
+				}
+
 				&.ng-enter{
 					@include opacity(0);
 				}

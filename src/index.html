@@ -89,7 +89,7 @@
 
 			<div class="contenu-marques" ng-style="{height:navHeightStyle}">
 				<div class="contenu-holder">
-				<a ng-repeat="y in selectedType" ng-style="{backgroundImage: marquesLogos(y.logo)}" ng-class="marqueHasClass(y)"><span ng-class="{hidden:marqueHasLogo(y.logo)}">{{y.name}}</span></a>
+				<a ng-repeat="y in selectedType" ng-href="{{y.url}}" ng-style="{backgroundImage: marquesLogos(y.logo)}" ng-class="marqueHasClass(y)" target="new"><span ng-class="{hidden:marqueHasLogo(y.logo)}">{{y.name}}</span></a>
 				</div>
 			</div>
 		</div>
