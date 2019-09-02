@@ -1,3 +1,4 @@
+
 module.exports = function(grunt) {
 
     // Project configuration.
@@ -12,16 +13,28 @@ module.exports = function(grunt) {
                 }
             }
         },
-        compass: {
-            dist: {
-                options: {
-                    sassDir: 'css/scss',
-                    cssDir: 'css',
-                    environment: 'production',
-                    outputStyle: 'compressed'
+        sass: {                              // Task
+            dist: {                            // Target
+                options: {                       // Target options
+                    style: 'expanded'
+                },
+                files: {
+                    'css/reunion.styles.css' : 'css/scss/reunion.styles.scss',
+                    'css/legacy.styles.css' : 'css/scss/legacy.styles.scss'
                 }
             }
         },
+        // sass: {
+        //     options: {
+        //         implementation: sass,
+        //         sourceMap: false
+        //     },
+        //     dist: {
+        //         files: {
+        //             'reunion.styles.css': 'css/scss/*.scss'
+        //         }
+        //     }
+        // },
         inject: {
           single: {
             scriptSrc: 'javascript/src/reunion.loader.js',
@@ -61,11 +74,11 @@ module.exports = function(grunt) {
             },
             css: {
                 files: ['css/scss/reunion.styles.scss','css/src/reunion.loading.css','css/scss/legacy.styles.scss'],
-                tasks: ['compass']
+                tasks: ['sass']
             },
             scripts: {
                 files: ['javascript/src/reunion.src.js','javascript/src/reunion.loader.js'],
-                tasks: ['inject','uglify','concat']
+                tasks: ['uglify','concat']
             }
         }
 
@@ -73,12 +86,12 @@ module.exports = function(grunt) {
 
     // Load required modules
     grunt.loadNpmTasks('grunt-contrib-concat');
-    grunt.loadNpmTasks('grunt-contrib-compass');
+    grunt.loadNpmTasks('grunt-contrib-sass');    
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-inject');
     grunt.loadNpmTasks('grunt-replace');
     
     // Default task(s).
-    grunt.registerTask('default', ['inject', 'uglify','compass','replace','concat','watch']);
+    grunt.registerTask('default', ['inject', 'uglify','sass','replace','concat','watch']);
 };

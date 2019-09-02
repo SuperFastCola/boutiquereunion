@@ -1,30 +1,30 @@
 {
-  "name": "Boutique Reunion",
+  "name": "www",
   "version": "1.0.0",
-  "description": "Store Mini-Site",
-  "main": "index.html",
-  "directories": {
-    "doc": "docs"
+  "description": "",
+  "main": "Gruntfile.js",
+  "dependencies": {},
+  "devDependencies": {
+    "compass": "^0.1.1",
+    "grunt": "^1.0.4",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-uglify": "^4.0.1",
+    "grunt-contrib-watch": "^1.1.0",
+    "grunt-inject": "^0.1.1",
+    "grunt-replace": "^1.0.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/SuperFastCola/"
+    "url": "git+https://github.com/SuperFastCola/boutiquereunion.git"
   },
-  "author": "Anthony Baker",
+  "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "grunt": "~0.4.5",
-    "grunt-compass": "^0.3.9",
-    "grunt-contrib-compass": "^1.1.1",
-    "grunt-contrib-concat": "latest",
-    "grunt-contrib-sass": "latest",
-    "grunt-contrib-uglify": "latest",
-    "grunt-contrib-watch": "latest",
-    "grunt-inject": "^0.1.1",
-    "grunt-replace": "^1.0.1",
-    "grunt-run": "^0.6.0"
-  }
+  "bugs": {
+    "url": "https://github.com/SuperFastCola/boutiquereunion/issues"
+  },
+  "homepage": "https://github.com/SuperFastCola/boutiquereunion#readme"
 }

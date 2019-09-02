@@ -143,7 +143,7 @@
 			// $scope.selectedType = $scope.setType(0);
 			// $scope.selectedTypeIndex = 0;
 
-			$http.get(("/nouvelles.json?="+new Date().getTime())).success($scope.displayNouvelles);
+			$http.get(("/nouvelles_v2.json?="+new Date().getTime())).success($scope.displayNouvelles);
 
 		}
 
@@ -153,16 +153,23 @@
 
 		$scope.displayNouvelles = function(response){
 
+			var newsObject = {
+				message:response.data[0].message,
+				link:response.data[0].permalink_url,
+				picture:response.data[0].attachments.data[0].subattachments.data[0].media.image.src
+			}
+
 			if(typeof response != "object" && String(response).length > 10){
-				$scope.nouvelles.push(JSON.parse(response));
+				$scope.nouvelles.push(newsObject);
 				$scope.showNews = true;
 			}
 			else if(typeof response == "object"){
-				$scope.nouvelles.push(response);
+				$scope.nouvelles.push(newsObject);
 				$scope.showNews = true;
 			}
 
-			$http.get(("/instagram.json?="+new Date().getTime())).success($scope.displayInstagram);
+			$scope.displayInstagram(response);
+			//$http.get(("/instagram.json?="+new Date().getTime())).success($scope.displayInstagram);
 		}
 
 		$scope.showInstagramDescription = function(){
@@ -171,18 +178,36 @@
 			//$scope.class = console.log(this);
 		}
 
-		$scope.displayInstagram = function(repsonse){
-			for(var i in repsonse.challenge.data){
+		$scope.displayInstagram = function(data){
+
+			for(var i in data.data){
+
+				console.log(data.data[i].attachments.data[0].subattachments);
+				if(typeof data.data[i].attachments.data[0].subattachments != "undefined"){
 				$scope.instagram.push({
-					"caption":repsonse.challenge.data[i].caption.text,
-					"image":repsonse.challenge.data[i].images.low_resolution.url,
-					"link":repsonse.challenge.data[i].link
-				});
-					
-				if(i==11){
+					"caption":data.data[i].message,
+					"image":data.data[i].attachments.data[0].subattachments.data[0].media.image.src,
+					"link":data.data[i].permalink_url
+				});	
+				}
+
+
+				if(i==12){
 					break;
 				}
+				
 			}
+			// for(var i in repsonse.challenge.data){
+			// 	$scope.instagram.push({
+			// 		"caption":repsonse.challenge.data[i].caption.text,
+			// 		"image":repsonse.challenge.data[i].images.low_resolution.url,
+			// 		"link":repsonse.challenge.data[i].link
+			// 	});
+					
+			// 	if(i==12){
+			// 		break;
+			// 	}
+			// }
 		}
 
 		$scope.renderBackground = function(image){
