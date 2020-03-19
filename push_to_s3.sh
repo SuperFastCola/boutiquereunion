@@ -3,8 +3,8 @@
 #!/bin/sh
 #change user,group and perms for multplie directoies
 
-directorypattern="(css|javascript)"
-filepattern="(html|css|js|json)"
+directorypattern="(javascript)"
+filepattern="(reunion.js$)"
 excludeslash="\/"
 bucket="boutiquereunion.com"
 bucketfullpath="s3://$bucket/"

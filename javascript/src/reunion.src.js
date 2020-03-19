@@ -143,7 +143,7 @@
 			// $scope.selectedType = $scope.setType(0);
 			// $scope.selectedTypeIndex = 0;
 
-			$http.get(("/nouvelles_v2.json?="+new Date().getTime())).success($scope.displayNouvelles);
+			$http.get(("https://s3.amazonaws.com/boutiquereunion.com/nouvelles_v2.json?="+new Date().getTime())).success($scope.displayNouvelles);
 
 		}
 
@@ -153,11 +153,27 @@
 
 		$scope.displayNouvelles = function(response){
 
-			var newsObject = {
-				message:response.data[0].message,
-				link:response.data[0].permalink_url,
-				picture:response.data[0].attachments.data[0].subattachments.data[0].media.image.src
+			var newsObject = null;
+			var i = 0;
+
+			while(newsObject==null){
+
+				if(typeof response.data[i].attachments.data[0].media != "undefined"){
+					newsObject = {
+						message: response.data[i].message.substring(0,300),
+						link:response.data[i].permalink_url,
+						picture:response.data[i].attachments.data[0].media.image.src
+					};
+
+					if(response.data[i].message.length>300){
+						newsObject.message += "...";
+					}
+
+				}
+				i++;
 			}
+
+			console.log(newsObject);
 
 			if(typeof response != "object" && String(response).length > 10){
 				$scope.nouvelles.push(newsObject);
@@ -182,13 +198,14 @@
 
 			for(var i in data.data){
 
-				console.log(data.data[i].attachments.data[0].subattachments);
-				if(typeof data.data[i].attachments.data[0].subattachments != "undefined"){
-				$scope.instagram.push({
-					"caption":data.data[i].message,
-					"image":data.data[i].attachments.data[0].subattachments.data[0].media.image.src,
-					"link":data.data[i].permalink_url
-				});	
+				if(i>0){
+					if(typeof data.data[i].attachments.data[0].subattachments != "undefined"){
+						$scope.instagram.push({
+							"caption":data.data[i].message,
+							"image":data.data[i].attachments.data[0].subattachments.data[0].media.image.src,
+							"link":data.data[i].permalink_url
+						});	
+					}
 				}
 
 
@@ -197,17 +214,6 @@
 				}
 				
 			}
-			// for(var i in repsonse.challenge.data){
-			// 	$scope.instagram.push({
-			// 		"caption":repsonse.challenge.data[i].caption.text,
-			// 		"image":repsonse.challenge.data[i].images.low_resolution.url,
-			// 		"link":repsonse.challenge.data[i].link
-			// 	});
-					
-			// 	if(i==12){
-			// 		break;
-			// 	}
-			// }
 		}
 
 		$scope.renderBackground = function(image){
