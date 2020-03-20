@@ -1,14 +1,16 @@
 (function(win){
 
+	var timeStamp = String(Math.floor(Date.now() / 1000));
+
 	var links = new Array();
-	links.push("/css/reunion.styles.css");
+	links.push("/css/reunion.styles.css?v=" + timeStamp);
 
 	// var cssFontLinks = new Array();
 	// cssFontLinks.push("http://fonts.googleapis.com/css?family=Oswald%7CKarla:400,400italic,700,700italic");
 	// cssFontLinks.push("http://fonts.googleapis.com/css?family=Average");
 	
 	var scripts = new Array();
-	scripts.push("/javascript/reunion.js");
+	scripts.push("/javascript/reunion.js?v=" + timeStamp);
 
 	var scriptsloaded = 0; 
 	var cssloaded = 0; 

@@ -9,14 +9,7 @@
 	<meta name="google-site-verification" content="Ocy0pCHA5vk1HEtPaKFJlyvkVoPRBeTCnxM4uC6pEJE" />
 	<link rel="stylesheet" type="text/css" href="css/reunion.styles.css?v=2.3">
 	<style type="text/css">
-	
-		#loader{
-			display: none;
-			/**/
-		
-		}
-
-	
+	@@includecss
 	</style>
 
 </head>
@@ -119,15 +112,17 @@
 	</div>
 	<script type="text/javascript">(function(win){
 
+	var timeStamp = String(Math.floor(Date.now() / 1000));
+
 	var links = new Array();
-	links.push("/css/reunion.styles.css");
+	links.push("/css/reunion.styles.css?v=" + timeStamp);
 
 	// var cssFontLinks = new Array();
 	// cssFontLinks.push("http://fonts.googleapis.com/css?family=Oswald%7CKarla:400,400italic,700,700italic");
 	// cssFontLinks.push("http://fonts.googleapis.com/css?family=Average");
 	
 	var scripts = new Array();
-	scripts.push("/javascript/reunion.js");
+	scripts.push("/javascript/reunion.js?v=" + timeStamp);
 
 	var scriptsloaded = 0; 
 	var cssloaded = 0; 

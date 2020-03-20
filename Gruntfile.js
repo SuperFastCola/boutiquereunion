@@ -78,7 +78,7 @@ module.exports = function(grunt) {
             },
             scripts: {
                 files: ['javascript/src/reunion.src.js','javascript/src/reunion.loader.js'],
-                tasks: ['uglify','concat']
+                tasks: ['uglify','concat','inject']
             }
         }
 
